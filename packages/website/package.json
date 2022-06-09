@@ -1,0 +1,45 @@
+{
+  "name": "@condohub/website",
+  "version": "1.0.0",
+  "description": "Front facing website",
+  "author": {
+    "email": "info@condohub.ca",
+    "name": "CondoHub",
+    "url": "https://github.com/condohub/condohub"
+  },
+  "homepage": "https://github.com/condohub/condohub",
+  "repository": {
+    "directory": "packages/website",
+    "type": "git",
+    "url": "git+https://github.com/condohub/condohub.git"
+  },
+  "keywords": [
+    "models",
+    "condohub"
+  ],
+  "license": "MIT",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/condohub/condohub/issues"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "echo ok",
+    "clean": "rimraf -rf dist/**",
+    "serve": "http-server -c-1 src",
+    "start": "nodemon --watch src/ --exec \"yarn serve\""
+  },
+  "sideEffects": false,
+  "type": "module",
+  "types": "dist/index.cjs.d.ts",
+  "dependencies": {},
+  "peerDependencies": {},
+  "devDependencies": {
+    "http-server": "^14"
+  }
+}

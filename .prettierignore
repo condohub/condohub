@@ -1,0 +1,24 @@
+# IDEs
+.idea
+
+# npm
+node_modules
+package-lock.json
+
+# files
+*.html
+*.yml
+*.yaml
+*.ejs
+*.json.ejs
+
+# source maps
+*.js.map
+
+# gatsby
+dist/
+public/
+built/
+.cache/
+graphql-types.ts
+

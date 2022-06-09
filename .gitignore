@@ -1,0 +1,71 @@
+# IDEs
+.idea
+
+# system
+Thumbs.db
+ehthumbs.db
+.DS_Store
+logs
+*.log
+*.swp
+pids
+*.pid
+*.seed
+*.iml
+.lock-wscript
+
+# logs
+*-debug.log
+*-error.log
+*.log
+
+# certificates
+*.pem
+
+# npm
+node_modules
+packages/**/package-lock.json
+
+# lerna
+lerna-debug.log
+
+# jest
+_reports
+__metrics__
+junit.xml
+
+# docker
+.docker
+docker-compose-ci.yml
+
+# kubernetes
+cluster-kubeconfig.yaml
+credentials-velero
+credentials
+*.secret.yaml
+*secrets.yaml
+
+# others
+lib-cov
+/tsd_typings/
+
+# typescript
+*.tsbuildinfo
+
+# env
+.env*
+!.env.test
+
+# Local Netlify folder
+.netlify
+
+# libs
+bin/
+lib/
+
+# apps
+dist/
+public/
+
+# graphql
+graphql.config.js

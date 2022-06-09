@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.iso-esm.json",
+  "compilerOptions": {
+    "types": ["react", "react-dom", "jest"],
+    "rootDir": "src",
+    "outDir": "dist",
+    "baseUrl": "."
+  },
+  "include": ["src", "types"]
+}

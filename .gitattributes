@@ -1,0 +1,15 @@
+# line endings are normalized to LF on checkin
+* text=auto eol=lf
+
+
+#
+# linguist config
+#
+# see https://github.com/github/linguist/blob/master/docs/overrides.md#using-gitattributes
+#
+**/*.dll.js linguist-generated
+**/dll/** linguist-generated
+**/bin/** linguist-generated
+**/vendor/** linguist-generated
+**/public/** linguist-generated
+**/built/** linguist-generated

@@ -1,0 +1,13 @@
+diff --git a/node_modules/env-cmd/dist/expand-envs.js b/node_modules/env-cmd/dist/expand-envs.js
+index b46324a..576a651 100644
+--- a/node_modules/env-cmd/dist/expand-envs.js
++++ b/node_modules/env-cmd/dist/expand-envs.js
+@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
+  * the environment variable doesn't exist, it leaves it as is.
+ */
+ function expandEnvs(str, envs) {
+-    return str.replace(/(?<!\\)\$[a-zA-Z0-9_]+/g, varName => {
++    return str.replace('\\$', '$').replace(/(?<!\\)\$[a-zA-Z0-9_]+/g, varName => {
+         const varValue = envs[varName.slice(1)];
+         return varValue === undefined ? varName : varValue;
+     });

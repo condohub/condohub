@@ -1,0 +1,19 @@
+ls:
+    /{src,test,types,docs}/**:
+      .dir: regex:^[a-z0-9.-]+$ | regex:^__test__$ | regex:^__snapshots__$ | regex:^__mocks__$
+
+    .md: regex:^[a-z0-9.-]+$ | regex:^README$ | regex:^CHANGELOG$
+    .mdx: regex:^[a-z0-9.-]+$
+    .js: regex:^[a-z0-9.-]+$
+    .ts: regex:^[a-z0-9.-]+$
+    .tsx: regex:^[a-z0-9.-]+$
+    .d.ts: regex:^[a-z0-9.-]+$
+
+ignore:
+    - .git
+    - .cache
+    - node_modules
+    - public
+    - dist
+    - lib
+    - built

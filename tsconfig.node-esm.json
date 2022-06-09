@@ -1,0 +1,15 @@
+/**
+ * For typescript libraries built for ESM compatible environment
+ */
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": true,
+    "incremental": true,
+    "composite": true,
+    "module": "node16",
+    "target": "ES2018",
+    "lib": ["ES2018"], // should be set according to choosen NodeJS version and its support of recent features https://node.green/
+    "types": ["node", "jest"]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "autorun": true,
+  "autokill": true,
+  "terminals": [
+    {
+      "name": "git",
+      "cwd": ".",
+      "open": true,
+      "focus": true,
+      "command": "git status",
+      "execute": false
+    },
+    {
+      "name": "root",
+      "cwd": ".",
+      "open": true,
+      "focus": false,
+      "command": "yarn",
+      "execute": false
+    },
+    {
+      "name": "app",
+      "cwd": "./packages/app",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
+      "name": "apps-script",
+      "cwd": "./packages/apps-script",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
+      "name": "common",
+      "cwd": "./packages/common",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
+      "name": "server",
+      "cwd": "./packages/server",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
+      "name": "website",
+      "cwd": "./packages/website",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    }
+  ]
+}

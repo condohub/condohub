@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json.schemastore.org/swcrc",
+  "minify": false,
+  "module": {
+    "type": "es6"
+  },
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": true
+    }
+  },
+  "env": {
+    "targets": {
+      "node": 16
+    }
+  },
+  "exclude": "(tests|mocks)"
+}

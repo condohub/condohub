@@ -1,0 +1,19 @@
+/**
+ * For typescript libraries used with NodeJS, meaning that
+ * output files should be in the commonjs format
+ */
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": true,
+    "incremental": true,
+    "target": "es2020",
+    "module": "commonjs",
+    //
+    // should be set according to choosen NodeJS version and
+    // its support of recent features https://node.green/
+    //
+    "lib": ["es2020"],
+    "types": ["node", "jest"]
+  }
+}

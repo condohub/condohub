@@ -1,0 +1,8 @@
+{
+  "**/package.json": [
+    "format-package -w"
+  ],
+  "disabled.{js,ts,tsx}": [
+    "yarn lint:fix"
+  ]
+}

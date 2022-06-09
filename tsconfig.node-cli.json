@@ -1,0 +1,10 @@
+/**
+ * For typescript CLI used with NodeJS
+ */
+{
+  "extends": "./tsconfig.node-commonjs.json",
+  "compilerOptions": {
+    "declaration": false,
+    "incremental": false
+  }
+}

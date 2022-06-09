@@ -1,0 +1,23 @@
+diff --git a/node_modules/jest-worker/build/workers/threadChild.js b/node_modules/jest-worker/build/workers/threadChild.js
+index dae1e64..f6ae0b0 100644
+--- a/node_modules/jest-worker/build/workers/threadChild.js
++++ b/node_modules/jest-worker/build/workers/threadChild.js
+@@ -87,6 +87,18 @@ function reportError(error, type) {
+     error = new Error('"null" or "undefined" thrown');
+   }
+ 
++  // Add console.log to see the actual error
++  delete error.hash
++  if(error.constructor){
++    console.log(error.constructor.name);
++  }
++  if(error.message){
++    console.log(error.message);
++  }
++  if(error.stack && error.stack.length){
++    console.log(error.stack);
++  }
++
+   _worker_threads().parentPort.postMessage([
+     type,
+     error.constructor && error.constructor.name,

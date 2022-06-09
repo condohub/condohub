@@ -1,0 +1,201 @@
+{
+  "settings": {
+    //
+    // general editor settings
+    //
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    //
+    // file / search config
+    //
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/yarn.lock": true,
+      "**/lib": true,
+      "**/dist": true,
+      "**/built": true,
+      "**/.cache/**/*": true,
+      "**/public/**/*": true,
+      "**/*.js.map": true,
+      "**/*.dll.js": true,
+      "**/*.tsbuildinfo": true
+    },
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/**": true,
+      "**/yarn.lock": true,
+      "**/.hg/store/**": true,
+      "**/dist/**": true,
+      "**/built/**": true,
+      "**/public/**": true,
+      "**/.cache/**": true,
+      "**/*.dll.js": true,
+      "**/*.js.map": true,
+      "**/lib/**": true
+    },
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/node_modules/**": false
+    },
+    //
+    // javascript
+    //
+    "javascript.preferences.quoteStyle": "single",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "[javascript]": {
+      "editor.formatOnSave": false,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"]
+    },
+    "[javascriptreact]": {
+      "editor.formatOnSave": false,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"]
+    },
+    //
+    // typescript
+    //
+    "typescript.preferences.jsxAttributeCompletionStyle": "braces",
+    "typescript.tsdk": "condohub/node_modules/typescript/lib",
+    "[typescript]": {
+      "editor.formatOnSave": false,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"]
+    },
+    "[typescriptreact]": {
+      "editor.formatOnSave": false,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"]
+    },
+    "typescript.surveys.enabled": false,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.preferences.importModuleSpecifier": "relative",
+    //
+    // markdown
+    //
+    "[markdown]": {
+      "editor.wordWrap": "off"
+    },
+    //
+    // deepscan extension
+    //
+    // https://github.com/deepscan/vscode-deepscan#settings-options
+    // https://deepscan.io/docs/rules
+    //
+    "deepscan.enable": true,
+    "deepscan.ignorePatterns": [
+      "**/node_modules/**",
+      "graphql-types.ts",
+      "**/built/**/*",
+      "**/dist/**/*",
+      "**/lib/**/*",
+      "**/public/**/*",
+      "**/dist/**/*"
+    ],
+    "deepscan.ignoreRules": ["no-console", "UNUSED_DECL", "UNUSED_PARAM"],
+    //
+    // terminals
+    //
+    "terminal.integrated.enablePersistentSessions": false,
+    "terminal.integrated.environmentChangesRelaunch": false,
+    "terminals.sortTerminals": true,
+    //
+    // auto-close-tag extension
+    //
+    "javascript.autoClosingTags": true,
+    "typescript.autoClosingTags": true,
+    //
+    // auto-rename extension
+    //
+    "auto-rename-tag.activationOnLanguage": [
+      "xml",
+      "javascript",
+      "typescript",
+      "javascriptreact",
+      "typescriptreact"
+    ],
+    "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#023e73",
+      "activityBar.activeBorder": "#db0476",
+      "activityBar.background": "#023e73",
+      "activityBar.foreground": "#e7e7e7",
+      "activityBar.inactiveForeground": "#e7e7e799",
+      "activityBarBadge.background": "#db0476",
+      "activityBarBadge.foreground": "#e7e7e7",
+      "sash.hoverBorder": "#023e73",
+      "statusBar.background": "#012341",
+      "statusBar.foreground": "#e7e7e7",
+      "statusBarItem.hoverBackground": "#023e73",
+      "statusBarItem.remoteBackground": "#012341",
+      "statusBarItem.remoteForeground": "#e7e7e7",
+      "titleBar.activeBackground": "#012341",
+      "titleBar.activeForeground": "#e7e7e7",
+      "titleBar.inactiveBackground": "#01234199",
+      "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#012341",
+    "[prisma]": {
+      "editor.defaultFormatter": "Prisma.prisma"
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "bierner.markdown-yaml-preamble",
+      "cschleiden.vscode-github-actions",
+      "cssho.vscode-svgviewer",
+      "dbaeumer.vscode-eslint",
+      "deepscan.vscode-deepscan",
+      "DigitalBrainstem.javascript-ejs-support",
+      "eamodio.gitlens",
+      "eg2.vscode-npm-script",
+      "esbenp.prettier-vscode",
+      "fabiospampinato.vscode-open-in-node-modules",
+      "fabiospampinato.vscode-terminals",
+      "formulahendry.auto-close-tag",
+      "formulahendry.auto-rename-tag",
+      "GitHub.vscode-pull-request-github",
+      "jasonnutter.search-node-modules",
+      "jock.svg",
+      "mikestead.dotenv",
+      "ms-vscode-remote.vscode-remote-extensionpack",
+      "msjsdiag.debugger-for-chrome",
+      "paulmolluzzo.convert-css-in-js",
+      "silvenon.mdx",
+      "svsool.markdown-memo",
+      "vstirbu.vscode-mermaid-preview",
+      "wmaurer.change-case",
+      "yzhang.markdown-all-in-one"
+    ]
+  },
+  "folders": [
+    {
+      "name": "condohub",
+      "path": ".."
+    },
+    {
+      "name": "app",
+      "path": "../packages/app"
+    },
+    {
+      "name": "apps-script",
+      "path": "../packages/apps-script"
+    },
+    {
+      "name": "common",
+      "path": "../packages/common"
+    },
+    {
+      "name": "server",
+      "path": "../packages/server"
+    },
+    {
+      "name": "website",
+      "path": "../packages/website"
+    }
+  ]
+}

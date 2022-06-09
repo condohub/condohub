@@ -1,0 +1,30 @@
+/**
+ * Default compiler options for packages in this monorepos
+ * Note: all path properties (e.g. baseUrl, rootDir, include, exclude, etc) should be set in each package's tsconfig.json
+ */
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "checkJs": false,
+    "isolatedModules": true,
+    "incremental": false,
+    "composite": false,
+    "declaration": false,
+    "diagnostics": false,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "pretty": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "strict": true,
+    "skipLibCheck": true
+  }
+}

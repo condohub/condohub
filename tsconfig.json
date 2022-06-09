@@ -1,0 +1,12 @@
+/**
+ * Root level configuration that is used by VSCode to resolve imports in the monorepo.
+ */
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "noEmit": true, // to prevent unwanted or accidental output files
+    "types": []
+  },
+  "exclude": ["**/node_modules", "**/lib", "**/built", "**/dist", "**/public"]
+}

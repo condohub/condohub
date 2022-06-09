@@ -1,0 +1,10 @@
+/**
+ * For isomorphic typescript libraries that does not depends on NodeJS or browsers' APIs
+ */
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": true,
+    "lib": ["esnext"]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@condohub/app",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/main.ts"
+  },
+  "dependencies": {}
+}

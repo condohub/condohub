@@ -1,0 +1,33 @@
+{
+  "name": "@condohub/apps-script",
+  "version": "1.5.3",
+  "description": "Internal tools",
+  "author": {
+    "email": "info@condohub.io",
+    "name": "CondoHub",
+    "url": "https://github.com/condohub/condohub"
+  },
+  "repository": {
+    "directory": "packages/apps-script",
+    "type": "git",
+    "url": "https://github.com/condohub/condohub.git"
+  },
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "files": [
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "build": "echo ok",
+    "clasp": "clasp",
+    "clasp:watch": "clasp push --watch",
+    "clean": "echo ok",
+    "start": "yarn clasp:watch"
+  },
+  "sideEffects": false,
+  "typings": "./lib/index.d.ts",
+  "dependencies": {
+    "@google/clasp": "^2.3.0"
+  }
+}

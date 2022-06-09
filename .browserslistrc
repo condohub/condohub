@@ -1,0 +1,10 @@
+# browsers
+chrome >= 85
+firefox >= 82
+ios_saf >=12
+safari >=12
+not IE 11
+
+# nodejs
+node >= 16
+

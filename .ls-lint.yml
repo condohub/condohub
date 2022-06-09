@@ -1,0 +1,8 @@
+ls:
+    docs:
+      .md: regex:^[a-z0-9.-]+$
+      .mdx: regex:^[a-z0-9.-]+$
+
+ignore:
+    - .git
+    - node_modules
