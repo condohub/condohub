@@ -8,3 +8,5 @@ npm-debug.log
 /lib
 /test/deploy
 node_modules
+!/bin/
+bin/condocli

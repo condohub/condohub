@@ -35,6 +35,7 @@ USAGE
 <!-- commands -->
 * [`condocli depcheck [ARGS]`](#condocli-depcheck-args)
 * [`condocli hello [ARGS]`](#condocli-hello-args)
+* [`condocli help [COMMAND]`](#condocli-help-command)
 * [`condocli jest [ARGS]`](#condocli-jest-args)
 * [`condocli jest-watch [ARGS]`](#condocli-jest-watch-args)
 
@@ -65,6 +66,23 @@ EXAMPLE
 ```
 
 _See code: [lib/commands/hello.js](https://github.com/condohub/condohub/blob/v1.0.1/lib/commands/hello.js)_
+
+## `condocli help [COMMAND]`
+
+display help for condocli
+
+```
+USAGE
+  $ condocli help [COMMAND]
+
+ARGUMENTS
+  COMMAND  command to show help for
+
+OPTIONS
+  --all  see all commands in CLI
+```
+
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.18/src/commands/help.ts)_
 
 ## `condocli jest [ARGS]`
 

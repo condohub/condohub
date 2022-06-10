@@ -25,6 +25,7 @@
     "build": "yarn lerna:build:lib && yarn lerna:build:cli",
     "changelog": "condocli lerna-version '--conventional-commits --no-push'",
     "clean": "yarn lerna:clean:lib",
+    "cli": "packages/cli/bin/run.js",
     "commit": "lint-staged && git-cz",
     "deduplicate": "npx yarn-deduplicate yarn.lock && yarn",
     "depcheck": "yarn lerna:depcheck",
