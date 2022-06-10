@@ -1,4 +1,4 @@
-import { getAppHost, getAppUrl } from '../url/url-utilities.js';
+import { getAppHost, getAppUrl } from '@condohub/node-utils';
 
 describe(`url-utilities`, () => {
   describe(`${getAppHost.name}`, () => {

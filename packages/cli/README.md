@@ -18,14 +18,14 @@ https://oclif.io/docs/releasing
 
 <!-- usage -->
 ```sh-session
-$ npm install -g @condohub/cli-esm
-$ condohub COMMAND
+$ npm install -g @condohub/cli
+$ condocli COMMAND
 running command...
-$ condohub (-v|--version|version)
-@condohub/cli-esm/1.0.1 darwin-arm64 node-v16.14.0
-$ condohub --help [COMMAND]
+$ condocli (-v|--version|version)
+@condohub/cli/1.0.1 darwin-arm64 node-v16.14.0
+$ condocli --help [COMMAND]
 USAGE
-  $ condohub COMMAND
+  $ condocli COMMAND
 ...
 ```
 <!-- usagestop -->
@@ -33,19 +33,70 @@ USAGE
 # Commands
 
 <!-- commands -->
-* [`condohub hello [ARGS]`](#condohub-hello-args)
+* [`condocli depcheck [ARGS]`](#condocli-depcheck-args)
+* [`condocli hello [ARGS]`](#condocli-hello-args)
+* [`condocli jest [ARGS]`](#condocli-jest-args)
+* [`condocli jest-watch [ARGS]`](#condocli-jest-watch-args)
 
-## `condohub hello [ARGS]`
+## `condocli depcheck [ARGS]`
 
-Authenticate CLI instance
+Shortcut to run depcheck
 
 ```
 USAGE
-  $ condohub hello [ARGS]
+  $ condocli depcheck [ARGS]
 
 EXAMPLE
-  $ ch auth
+  $ nr depcheck
+```
+
+_See code: [lib/commands/depcheck.js](https://github.com/condohub/condohub/blob/v1.0.1/lib/commands/depcheck.js)_
+
+## `condocli hello [ARGS]`
+
+Dummy test command
+
+```
+USAGE
+  $ condocli hello [ARGS]
+
+EXAMPLE
+  $ condohub hello
 ```
 
 _See code: [lib/commands/hello.js](https://github.com/condohub/condohub/blob/v1.0.1/lib/commands/hello.js)_
+
+## `condocli jest [ARGS]`
+
+Shortcut to run jest with typescript (ts-node)
+
+```
+USAGE
+  $ condocli jest [ARGS]
+
+OPTIONS
+  --config=config  [default: jest.config.ts] path to jest config file
+
+EXAMPLE
+  $ nr jest
+```
+
+_See code: [lib/commands/jest.js](https://github.com/condohub/condohub/blob/v1.0.1/lib/commands/jest.js)_
+
+## `condocli jest-watch [ARGS]`
+
+Shortcut to run jest with typescript (ts-node)
+
+```
+USAGE
+  $ condocli jest-watch [ARGS]
+
+OPTIONS
+  --config=config  [default: jest.config.ts] path to jest config file
+
+EXAMPLE
+  $ nr jest
+```
+
+_See code: [lib/commands/jest-watch.js](https://github.com/condohub/condohub/blob/v1.0.1/lib/commands/jest-watch.js)_
 <!-- commandsstop -->

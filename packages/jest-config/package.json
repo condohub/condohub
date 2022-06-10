@@ -13,25 +13,41 @@
     "url": "https://github.com/condohub/condohub.git"
   },
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
   "files": [
     "/src",
     "/dist"
   ],
   "scripts": {
-    "build": "yarn tsc:build && yarn swc:build",
+    "build": "yarn tsc:types && yarn swc:build && yarn swc:build:commonjs && yarn rename:commonjs",
     "clean": "yarn clean:dist && yarn clean:tsc",
     "clean:dist": "rimraf -rf dist/**",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
-    "start": "concurrently \"yarn tsc:build:watch\" \"yarn swc:build:watch\"",
+    "rename:commonjs": "renamer --chain ../node-utils/src/scripts/rename-cjs-extension.js './dist/cjs/**/*'",
+    "rename:watch": "nodemon --delay 1000 --watch dist/cjs --ext js --exec 'yarn rename:commonjs'",
+    "prestart": "yarn build",
+    "start": "concurrently \"yarn tsc:types:watch\" \"yarn swc:build:watch\" \"yarn swc:build:commonjs:watch\" \"yarn rename:watch\"",
     "swc:build": "yarn swc ./src --config-file ../../.swcrc --source-maps --ignore **/__test__/**/* --out-dir dist",
+    "swc:build:commonjs": "yarn swc:build --config-file ../../.swcrc-commonjs --out-dir dist/cjs",
+    "swc:build:commonjs:watch": "yarn swc:build:commonjs --watch",
     "swc:build:watch": "yarn swc:build --watch",
-    "test": "ch jest",
-    "tsc:build": "tsc --emitDeclarationOnly",
-    "tsc:build:watch": "yarn tsc:build --watch --preserveWatchOutput",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "tsc:typecheck": "tsc --noEmit",
-    "typecheck": "yarn tsc:typecheck"
+    "tsc:types": "yarn tsc -b",
+    "tsc:types:watch": "yarn tsc:types --watch --preserveWatchOutput"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./dist/index.js",
+        "types": "./dist/index.types.d.ts"
+      },
+      "require": {
+        "default": "./dist/cjs/index.cjs",
+        "types": "./dist/index.types.d.cts"
+      }
+    },
+    "./package.json": "./package.json"
   },
   "sideEffects": false,
   "type": "module",
@@ -40,7 +56,7 @@
     "@babel/core": "^7",
     "@mdx-js/mdx": "^1.6.18",
     "@testing-library/jest-dom": "^5",
-    "@testing-library/react": "^12",
+    "@testing-library/react": "^13",
     "babel-jest": "^27.0.6"
   }
 }

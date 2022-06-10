@@ -22,11 +22,10 @@
   "bugs": {
     "url": "https://github.com/condohub/condohub/issues"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.js",
   "files": [
     "dist",
-    "src"
+    "src",
+    "types"
   ],
   "scripts": {
     "build": "echo ok",
@@ -36,7 +35,6 @@
   },
   "sideEffects": false,
   "type": "module",
-  "types": "dist/index.types.d.ts",
   "dependencies": {},
   "peerDependencies": {},
   "devDependencies": {

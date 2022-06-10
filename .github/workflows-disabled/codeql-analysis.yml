@@ -1,0 +1,77 @@
+#
+# Github Workflow config file
+#
+# - reference: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
+# - composite actions: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
+#
+
+name: github-codeql
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [master]
+  schedule:
+    #        ┌───────────── minute (0 - 59)
+    #        │  ┌───────────── hour (0 - 23)
+    #        │  │ ┌───────────── day of the month (1 - 31)
+    #        │  │ │ ┌───────────── month (1 - 12 or JAN-DEC)
+    #        │  │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
+    #        │  │ │ │ │
+    #        │  │ │ │ │
+    #        │  │ │ │ │
+    #        *  * * * *
+    - cron: '30 1 * * 0'
+  workflow_dispatch:
+
+env:
+  #
+  # Debugging
+  #
+  DEBUG: 'nr*'
+  ACTIONS_STEP_DEBUG: true
+  #
+  # Node
+  #
+  NODE_OPTIONS: '--max-old-space-size=4096'
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ['javascript']
+        # Learn more:
+        # https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed
+
+    steps:
+      - name: Checkout
+        if: ${{ github.event_name != 'pull_request_target' }}
+        uses: actions/checkout@v2
+        with:
+          clean: false
+
+      - name: Checkout PR
+        if: ${{ github.event_name == 'pull_request_target' }}
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          clean: false
+
+      - name: 'Checkout, Setup NodeJS + yarn and install dependencies'
+        uses: ./.github/actions/base-node-setup
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v1
+        with:
+          languages: ${{ matrix.language }}
+
+      - name: Install dependencies and build core packages
+        run: yarn --prefer-offline --frozen-lockfile
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v1

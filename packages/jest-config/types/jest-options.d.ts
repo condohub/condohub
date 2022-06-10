@@ -168,7 +168,7 @@ declare module jest {
     testRunner?: string;
     testURL?: string;
     timers?: 'real' | 'fake';
-    transform?: { [key: string]: string };
+    transform?: { [key: string]: string | string[] };
     transformIgnorePatterns?: Glob[];
     watchPathIgnorePatterns?: string[];
     unmockedModulePathPatterns?: string[];

@@ -1,5 +1,3 @@
-/// <reference types="@newrade/core-types/src/mdx" />
-
 import { spawnSync } from 'child_process';
 
 import React from 'react';

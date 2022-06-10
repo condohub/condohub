@@ -1,15 +1,12 @@
 import { Command } from '@oclif/command';
 
-export default class Auth extends Command {
-  static description = 'Authenticate CLI instance';
-
-  static examples = [`$ ch auth`];
-
+export default class Hello extends Command {
+  static description = 'Dummy test command';
+  static examples = [`$ condohub hello`];
   static args = [{ name: 'args' }];
 
   async run() {
-    const { args } = await this.parse(Auth);
-
-    this.log(`running in ${process.cwd()}`);
+    const { args } = await this.parse(Hello);
+    this.log(`hello`);
   }
 }

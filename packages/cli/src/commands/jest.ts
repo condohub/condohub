@@ -27,7 +27,7 @@ export default class Jest extends Command {
     const { args, flags } = await this.parse(Jest);
 
     const command = [
-      `cross-env TS_NODE_PROJECT=../../tsconfig.node-cli.json node -r ts-node/register ../../node_modules/jest/bin/jest`,
+      `cross-env TS_NODE_PROJECT=../../tsconfig.node-cli.json node --loader ts-node/esm ../../node_modules/jest/bin/jest`,
       `${flags.config ? '--config ' + flags.config : ''}`,
       `${args.args || ''}`,
     ].join(' ');

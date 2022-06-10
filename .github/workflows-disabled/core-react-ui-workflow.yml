@@ -1,0 +1,87 @@
+#
+# Github Workflow config file
+#
+# - reference: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
+# - composite actions: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
+#
+
+name: core-react-ui
+
+on:
+  push:
+    paths:
+      - '.github/actions/**/*'
+      - '.github/workflows/core-react-ui-workflow.yml'
+      - '**/package.json'
+      - '**/package-lock.json'
+      - '**/yarn.lock'
+      - 'packages/core-*/**/*'
+    branches:
+      - dev
+      - master
+      - release
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
+
+env:
+  #
+  # Debugging
+  #
+  DEBUG: 'nr*'
+  #
+  # Node
+  #
+  NODE_OPTIONS: '--max-old-space-size=4096'
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    # If the PR is coming from a fork (pull_request_target), ensure it's opened by "dependabot[bot]".
+    # Otherwise, clone it normally.
+    if: |
+      (github.event_name == 'pull_request_target' && github.actor == 'dependabot[bot]') ||
+      (github.event_name != 'pull_request_target' && github.actor != 'dependabot[bot]')
+
+    steps:
+      - name: Checkout
+        if: ${{ github.event_name != 'pull_request_target' }}
+        uses: actions/checkout@v2
+        with:
+          clean: false
+
+      - name: Checkout PR
+        if: ${{ github.event_name == 'pull_request_target' }}
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          clean: false
+
+      - name: 'Checkout, Setup NodeJS + yarn and install dependencies'
+        uses: ./.github/actions/base-node-setup
+
+      - name: Verify dependencies
+        run: yarn lerna:depcheck --scope @newrade/core-react-ui
+
+      - name: Lint (ls-lint) source files
+        run: yarn lerna:ls-lint --scope @newrade/core-react-ui
+
+      - name: Lint source files
+        run: yarn eslint ./packages/core-react-ui/src/ --ext "ts,tsx"
+
+      - name: Run unit tests
+        run: yarn lerna:test --scope @newrade/core-react-ui
+
+      - name: Build package
+        run: yarn lerna:build --scope @newrade/core-react-ui
+
+      # - name: Run package size report
+      #   if: ${{ github.event_name == 'pull_request_target' || github.event_name == 'pull_request' }}
+      #   uses: pkg-size/action@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     build-command: false

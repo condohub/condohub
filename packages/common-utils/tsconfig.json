@@ -3,9 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "dist",
-    "moduleResolution": "node16",
+    "emitDeclarationOnly": true,
     "rootDir": "src",
     "types": ["node", "jest", "debug"]
   },
-  "include": ["src"]
+  "include": ["src", "types"]
 }
