@@ -1,4 +1,4 @@
-import { FORM_INPUT_TYPE } from './form-types';
+import { FORM_INPUT_TYPE } from './form-types.js';
 
 /**
  * Depending on the input type we can infer the type of valueType and placeholder

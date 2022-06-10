@@ -4,8 +4,10 @@
  * @see adapted from https://github.com/gcanti/io-ts/blob/e9a608ee54485a8d6a44e49f22e682eb1fbea6eb/src/PathReporter.ts
  */
 
+// @ts-ignore
 import { fold } from 'fp-ts/lib/Either';
 import { Context, getFunctionName, ValidationError } from 'io-ts';
+// @ts-ignore
 import { Reporter } from 'io-ts/lib/Reporter';
 
 function stringify(v: any): string {

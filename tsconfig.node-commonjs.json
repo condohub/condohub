@@ -6,14 +6,13 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "declaration": true,
-    "incremental": true,
-    "target": "es2020",
-    "module": "commonjs",
+    "target": "ES2020",
+    "module": "CommonJS",
     //
     // should be set according to choosen NodeJS version and
     // its support of recent features https://node.green/
     //
-    "lib": ["es2020"],
+    "lib": ["ES2021"],
     "types": ["node", "jest"]
   }
 }

@@ -1,5 +1,5 @@
-import { FORM_INPUT_TYPE } from './form-types';
-import { FormFieldValidation, FormFieldValueType } from './form-validation.model';
+import { FORM_INPUT_TYPE } from './form-types.js';
+import { FormFieldValidation, FormFieldValueType } from './form-validation.model.js';
 
 /**
  * FormField configuration object

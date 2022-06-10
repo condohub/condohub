@@ -1,4 +1,4 @@
-import { CommonEnvType } from '../env/common-env';
+import { CommonEnvType } from '../env/common-env.js';
 
 export const defaultUrlParts: Full<
   Pick<CommonEnvType, 'APP_DOMAIN' | 'APP_PORT' | 'APP_PROTOCOL'>

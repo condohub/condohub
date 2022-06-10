@@ -1,7 +1,10 @@
-# specific to oclif
-/.nyc_output
+.idea
+.DS_Store
+npm-debug.log
+*-debug.log
+*-error.log
+/coverage
 /dist
 /lib
-/tmp
-!/bin
-/bin/nr
+/test/deploy
+node_modules

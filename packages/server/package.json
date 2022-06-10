@@ -10,7 +10,7 @@
     "clean:dist": "rimraf -rf dist/**",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
     "nodemon": "nodemon  --delay 2000ms --watch dist/ --ext js,ts,tsx --ignore 'dist/*.d.ts' --exec 'yarn server'",
-    "server": "env-cmd -x cross-env TS_NODE_PROJECT=../../tsconfig.node-cli.json node --experimental-specifier-resolution=node dist/server.js",
+    "server": "env-cmd -x cross-env TS_NODE_PROJECT=../../tsconfig.node-cli.json node dist/server.js",
     "server:kill-port": ". ./.env && kill-port --port $APP_PORT && kill-port --port 9229",
     "start": "concurrently \"yarn tsc:build:watch\" \"yarn swc:build:watch\" \"yarn nodemon\"",
     "swc:build": "yarn swc ./src --config-file ../../.swcrc --source-maps --ignore **/__test__/**/* --out-dir dist",

@@ -1,6 +1,6 @@
 import debug from 'debug';
 
-import { CommonEnvType } from './common-env';
+import { CommonEnvType } from './common-env.js';
 
 const log = debug('nr:env');
 

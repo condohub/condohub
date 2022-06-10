@@ -20,7 +20,7 @@
     "jsx": "react",
     "module": "esnext",
     "target": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "node16",
     "pretty": true,
     "resolveJsonModule": true,
     "sourceMap": true,

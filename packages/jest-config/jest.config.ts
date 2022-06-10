@@ -1,6 +1,6 @@
 /// <reference types="./types/jest-options" />
 
-import { baseJestConfig } from './src/jest.base.config';
+import { baseJestConfig } from './src/jest.base.config.js';
 
 const config: jest.InitialOptions = {
   ...baseJestConfig,

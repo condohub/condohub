@@ -1,6 +1,4 @@
-/// <reference types="../types/jest-options" />
-
-import { includedLibToCompile } from './included-libs';
+import { includedLibToCompile } from './included-libs.js';
 
 export const baseJestConfig: jest.InitialOptions & { extensionsToTreatAsEsm?: string[] } = {
   // see https://jestjs.io/docs/configuration#extensionstotreatasesm-arraystring

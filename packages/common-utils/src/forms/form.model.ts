@@ -1,5 +1,5 @@
-import { FormField, FormFieldConfig } from './form-field.model';
-import { FORM_INPUT_TYPE } from './form-types';
+import { FormField, FormFieldConfig } from './form-field.model.js';
+import { FORM_INPUT_TYPE } from './form-types.js';
 
 /**
  * Type to configure a form

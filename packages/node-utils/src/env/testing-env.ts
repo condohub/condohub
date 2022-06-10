@@ -1,6 +1,6 @@
 import * as t from 'io-ts';
 
-import { TextBoolean } from './boolean-env';
+import { TextBoolean } from './boolean-env.js';
 
 /**
  * Typed representation of the .env file for test setup (jest, puppeteer...).

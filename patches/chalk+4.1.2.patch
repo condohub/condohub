@@ -1,0 +1,12 @@
+diff --git a/node_modules/chalk/package.json b/node_modules/chalk/package.json
+index 47c23f2..1b79f24 100644
+--- a/node_modules/chalk/package.json
++++ b/node_modules/chalk/package.json
+@@ -13,6 +13,7 @@
+ 		"test": "xo && nyc ava && tsd",
+ 		"bench": "matcha benchmark.js"
+ 	},
++  "types": "index.d.ts",
+ 	"files": [
+ 		"source",
+ 		"index.d.ts"

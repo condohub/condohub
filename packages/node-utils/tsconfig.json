@@ -1,10 +1,11 @@
 {
-  "extends": "../../tsconfig.node-commonjs.json",
+  "extends": "../../tsconfig.node-esm.json",
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "dist",
+    "emitDeclarationOnly": true,
     "rootDir": "src",
     "types": ["node", "jest", "debug"]
   },
-  "include": ["src"]
+  "include": ["src", "rename-cjs.js"]
 }

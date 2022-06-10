@@ -1,4 +1,4 @@
-import { AppError } from '../errors/error.model';
+import { AppError } from '../errors/error.model.js';
 
 export enum API_RESPONSE_STATUS {
   SUCCESS = 'SUCCESS',

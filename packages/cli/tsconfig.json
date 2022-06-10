@@ -1,10 +1,15 @@
 {
-  "extends": "../../tsconfig.node-commonjs.json",
   "compilerOptions": {
-    "declaration": false,
-    "baseUrl": ".",
-    "outDir": "lib",
-    "rootDir": "src"
+    "allowJs": true,
+    "declaration": true,
+    "moduleResolution": "node16",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "CommonJS",
+    "skipLibCheck": true,
+    "target": "ES2020",
+    "outDir": "./lib",
+    "lib": ["ES2020"]
   },
   "include": ["src"]
 }

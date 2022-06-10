@@ -17,24 +17,39 @@
     "types"
   ],
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/index.js",
   "files": [
     "dist",
     "src"
   ],
   "scripts": {
-    "build": "yarn tsc:build && yarn swc:build",
+    "build": "yarn tsc:build && yarn swc:build && yarn swc:build:commonjs && yarn rename:commonjs",
     "clean": "yarn clean:dist && yarn clean:tsc",
     "clean:dist": "rimraf -rf dist/**",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "rename:commonjs": "renamer --chain rename-cjs.js './dist/cjs/**/*'",
     "start": "concurrently \"yarn tsc:build:watch\" \"yarn swc:build:watch\"",
     "swc:build": "yarn swc ./src --config-file ../../.swcrc --source-maps --ignore **/__test__/**/* --out-dir dist",
+    "swc:build:commonjs": "yarn swc:build --config-file ../../.swcrc-commonjs --out-dir dist/cjs",
     "swc:build:watch": "yarn swc:build --watch",
-    "tsc:build": "tsc --emitDeclarationOnly",
+    "tsc:build": "yarn tsc -b",
     "tsc:build:watch": "yarn tsc:build --watch --preserveWatchOutput",
     "tsc:typecheck": "tsc --noEmit",
     "typecheck": "yarn tsc:typecheck"
   },
-  "types": "dist/index.cjs.d.ts"
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./dist/index.js",
+        "types": "./dist/index.types.d.ts"
+      },
+      "require": {
+        "default": "./dist/cjs/index.cjs",
+        "types": "./dist/index.types.d.cts"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "type": "module"
 }

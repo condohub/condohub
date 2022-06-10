@@ -1,7 +1,7 @@
 import * as t from 'io-ts';
 
-import { DebugEnv } from './debug-env';
-import { DeployEnv } from './deploy-env';
+import { DebugEnv } from './debug-env.js';
+import { DeployEnv } from './deploy-env.js';
 
 /**
  * Typed representation of the .env files. All Figma plugin should

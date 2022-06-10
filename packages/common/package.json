@@ -42,7 +42,7 @@
   },
   "sideEffects": false,
   "type": "module",
-  "types": "dist/index.cjs.d.ts",
+  "types": "dist/index.types.d.ts",
   "dependencies": {},
   "peerDependencies": {}
 }

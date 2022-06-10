@@ -13,34 +13,48 @@
     "url": "https://github.com/condohub/condohub.git"
   },
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
   "files": [
-    "/src",
-    "/dist"
+    "dist",
+    "src"
   ],
   "scripts": {
-    "build": "yarn tsc:build && yarn swc:build",
+    "build": "yarn tsc:types && yarn swc:build && yarn swc:build:commonjs && yarn rename:commonjs",
     "clean": "yarn clean:dist && yarn clean:tsc",
     "clean:dist": "rimraf -rf dist/**",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
-    "start": "concurrently \"yarn tsc:build:watch\" \"yarn swc:build:watch\"",
+    "rename:commonjs": "renamer --chain ../node-utils/src/scripts/rename-cjs-extension.js './dist/cjs/**/*'",
+    "rename:watch": "nodemon --watch dist/cjs --ext js --exec 'yarn rename:commonjs'",
+    "prestart": "yarn build",
+    "start": "concurrently \"yarn tsc:types:watch\" \"yarn swc:build:watch\" \"yarn swc:build:watch\" \"yarn swc:build:commonjs:watch\" \"yarn rename:watch\"",
     "swc:build": "yarn swc ./src --config-file ../../.swcrc --source-maps --ignore **/__test__/**/* --out-dir dist",
+    "swc:build:commonjs": "yarn swc:build --config-file ../../.swcrc-commonjs --out-dir dist/cjs",
+    "swc:build:commonjs:watch": "yarn swc:build:commonjs --watch",
     "swc:build:watch": "yarn swc:build --watch",
-    "tsc:build": "tsc --emitDeclarationOnly",
-    "tsc:build:watch": "yarn tsc:build --watch --preserveWatchOutput",
     "tsc:typecheck": "tsc --noEmit",
-    "typecheck": "yarn tsc:typecheck"
+    "tsc:types": "yarn tsc -b",
+    "tsc:types:watch": "yarn tsc:types --watch --preserveWatchOutput"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./dist/index.js",
+        "types": "./dist/index.types.d.ts"
+      },
+      "require": {
+        "default": "./dist/cjs/index.cjs",
+        "types": "./dist/index.types.d.cts"
+      }
+    },
+    "./package.json": "./package.json"
   },
   "sideEffects": false,
-  "types": "dist/index.cjs.d.ts",
+  "type": "module",
   "dependencies": {
     "@condohub/common-utils": "*",
     "@condohub/jest-config": "*",
     "chalk": "^4",
-    "dotenv": "^10",
+    "dotenv": "^16",
     "fp-ts": "^2.11.1",
-    "io-ts": "^2",
-    "prettier": "^2"
+    "io-ts": "^2"
   }
 }

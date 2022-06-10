@@ -34,7 +34,8 @@
     "typecheck": "yarn tsc:typecheck"
   },
   "sideEffects": false,
-  "types": "dist/index.cjs.d.ts",
+  "type": "module",
+  "types": "dist/index.types.d.ts",
   "dependencies": {
     "@babel/core": "^7",
     "@mdx-js/mdx": "^1.6.18",

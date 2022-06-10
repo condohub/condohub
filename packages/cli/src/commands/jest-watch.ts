@@ -1,10 +1,10 @@
 import { spawnSync } from 'child_process';
 
-import { Command, flags } from '@oclif/command';
+import { Command, Flags } from '@oclif/core';
 
 import { getShellForPlatform } from '@condohub/node-utils';
 
-import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
+import { debugInstance, enableDebug, NS } from '../utilities/log.utilities.js';
 
 export default class JestWatch extends Command {
   log = debugInstance(`${NS}:jest`);
@@ -18,13 +18,13 @@ export default class JestWatch extends Command {
   static args = [{ name: 'args' }];
 
   static flags = {
-    config: flags.string({ description: 'path to jest config file', default: 'jest.config.ts' }),
+    config: Flags.string({ description: 'path to jest config file', default: 'jest.config.ts' }),
   };
 
   async run() {
     enableDebug();
 
-    const { args, flags } = this.parse(JestWatch);
+    const { args, flags } = await this.parse(JestWatch);
 
     const command = [
       `cross-env TS_NODE_PROJECT=../../tsconfig.node-cli.json node -r ts-node/register ../../node_modules/jest/bin/jest`,

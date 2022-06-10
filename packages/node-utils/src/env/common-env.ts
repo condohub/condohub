@@ -2,8 +2,8 @@ import * as t from 'io-ts';
 
 import { DEPLOY_ENV, TEST_ENV } from '@condohub/common-utils';
 
-import { TextBoolean } from './boolean-env';
-import { DebugEnv } from './debug-env';
+import { TextBoolean } from './boolean-env.js';
+import { DebugEnv } from './debug-env.js';
 
 /**
  * Our deploy environment values

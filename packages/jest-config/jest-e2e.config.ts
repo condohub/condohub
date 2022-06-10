@@ -1,6 +1,6 @@
 /// <reference types="@newrade/core-types/src/jest-options" />
 
-import { puppeteerPreset } from './src/puppeteer-jest.base.config';
+import { puppeteerPreset } from './src/puppeteer-jest.base.config.js';
 import jestConfig from './jest.config.js';
 
 const config: jest.InitialOptions = {

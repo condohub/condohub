@@ -1,4 +1,4 @@
-import { ERROR_TYPE } from './error.constant';
+import { ERROR_TYPE } from './error.constant.js';
 
 export class AppError extends Error {
   name!: ERROR_TYPE;

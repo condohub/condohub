@@ -1,1 +1,1 @@
-export * from './condo.models';
+export * from './condo.models.js';
