@@ -1,31 +1,23 @@
 {
-  "name": "@condohub/common",
+  "name": "@condohub/node-utils",
   "version": "1.0.0",
-  "description": "Data models and other common code shared between the UI and the server",
+  "description": "NodeJS utilities shared across packages.",
   "author": {
-    "email": "info@condohub.ca",
+    "email": "info@condohub.io",
     "name": "CondoHub",
     "url": "https://github.com/condohub/condohub"
   },
-  "homepage": "https://github.com/condohub/condohub",
   "repository": {
-    "directory": "packages/common",
+    "directory": "packages/node-utils",
     "type": "git",
-    "url": "git+https://github.com/condohub/condohub.git"
+    "url": "https://github.com/condohub/condohub.git"
   },
-  "keywords": [
-    "models",
-    "condohub"
-  ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/condohub/condohub/issues"
-  },
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
-    "dist",
-    "src"
+    "/src",
+    "/dist"
   ],
   "scripts": {
     "build": "yarn tsc:build && yarn swc:build",
@@ -41,8 +33,14 @@
     "typecheck": "yarn tsc:typecheck"
   },
   "sideEffects": false,
-  "type": "module",
   "types": "dist/index.cjs.d.ts",
-  "dependencies": {},
-  "peerDependencies": {}
+  "dependencies": {
+    "@condohub/common-utils": "*",
+    "@condohub/jest-config": "*",
+    "chalk": "^4",
+    "dotenv": "^10",
+    "fp-ts": "^2.11.1",
+    "io-ts": "^2",
+    "prettier": "^2"
+  }
 }

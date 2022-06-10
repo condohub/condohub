@@ -1,26 +1,22 @@
 {
-  "name": "@condohub/common",
+  "name": "@condohub/common-utils",
   "version": "1.0.0",
-  "description": "Data models and other common code shared between the UI and the server",
+  "description": "Common utilities shared across packages.",
   "author": {
     "email": "info@condohub.ca",
     "name": "CondoHub",
     "url": "https://github.com/condohub/condohub"
   },
-  "homepage": "https://github.com/condohub/condohub",
   "repository": {
-    "directory": "packages/common",
+    "directory": "packages/common-utils",
     "type": "git",
-    "url": "git+https://github.com/condohub/condohub.git"
+    "url": "https://github.com/condohub/condohub.git"
   },
   "keywords": [
-    "models",
-    "condohub"
+    "env",
+    "types"
   ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/condohub/condohub/issues"
-  },
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
@@ -40,9 +36,5 @@
     "tsc:typecheck": "tsc --noEmit",
     "typecheck": "yarn tsc:typecheck"
   },
-  "sideEffects": false,
-  "type": "module",
-  "types": "dist/index.cjs.d.ts",
-  "dependencies": {},
-  "peerDependencies": {}
+  "types": "dist/index.cjs.d.ts"
 }

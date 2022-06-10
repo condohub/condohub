@@ -1,31 +1,23 @@
 {
-  "name": "@condohub/common",
+  "name": "@condohub/jest-config",
   "version": "1.0.0",
-  "description": "Data models and other common code shared between the UI and the server",
+  "description": "Reusable Jest config and transformers",
   "author": {
     "email": "info@condohub.ca",
     "name": "CondoHub",
     "url": "https://github.com/condohub/condohub"
   },
-  "homepage": "https://github.com/condohub/condohub",
   "repository": {
-    "directory": "packages/common",
+    "directory": "packages/jest-config",
     "type": "git",
-    "url": "git+https://github.com/condohub/condohub.git"
+    "url": "https://github.com/condohub/condohub.git"
   },
-  "keywords": [
-    "models",
-    "condohub"
-  ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/condohub/condohub/issues"
-  },
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
-    "dist",
-    "src"
+    "/src",
+    "/dist"
   ],
   "scripts": {
     "build": "yarn tsc:build && yarn swc:build",
@@ -35,14 +27,19 @@
     "start": "concurrently \"yarn tsc:build:watch\" \"yarn swc:build:watch\"",
     "swc:build": "yarn swc ./src --config-file ../../.swcrc --source-maps --ignore **/__test__/**/* --out-dir dist",
     "swc:build:watch": "yarn swc:build --watch",
+    "test": "ch jest",
     "tsc:build": "tsc --emitDeclarationOnly",
     "tsc:build:watch": "yarn tsc:build --watch --preserveWatchOutput",
     "tsc:typecheck": "tsc --noEmit",
     "typecheck": "yarn tsc:typecheck"
   },
   "sideEffects": false,
-  "type": "module",
   "types": "dist/index.cjs.d.ts",
-  "dependencies": {},
-  "peerDependencies": {}
+  "dependencies": {
+    "@babel/core": "^7",
+    "@mdx-js/mdx": "^1.6.18",
+    "@testing-library/jest-dom": "^5",
+    "@testing-library/react": "^12",
+    "babel-jest": "^27.0.6"
+  }
 }

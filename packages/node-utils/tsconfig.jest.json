@@ -1,0 +1,7 @@
+{
+  "extends": "../core-jest-config/tsconfig.base.jest.json",
+  "compilerOptions": {
+    "types": ["node", "jest", "debug"]
+  },
+  "include": ["test", "src"]
+}

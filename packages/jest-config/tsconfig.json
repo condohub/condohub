@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.node-commonjs.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "baseUrl": ".",
+    "types": ["jest", "node", "expect-puppeteer", "jest-environment-puppeteer", "puppeteer"]
+  },
+  "include": ["src", "types"]
+}

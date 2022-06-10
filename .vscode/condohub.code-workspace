@@ -186,8 +186,24 @@
       "path": "../packages/apps-script"
     },
     {
+      "name": "cli",
+      "path": "../packages/cli"
+    },
+    {
       "name": "common",
       "path": "../packages/common"
+    },
+    {
+      "name": "common-utils",
+      "path": "../packages/common-utils"
+    },
+    {
+      "name": "jest-config",
+      "path": "../packages/jest-config"
+    },
+    {
+      "name": "node-utils",
+      "path": "../packages/node-utils"
     },
     {
       "name": "server",

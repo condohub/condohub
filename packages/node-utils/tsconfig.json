@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.node-commonjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "dist",
+    "rootDir": "src",
+    "types": ["node", "jest", "debug"]
+  },
+  "include": ["src"]
+}

@@ -35,8 +35,40 @@
       "execute": false
     },
     {
+      "name": "cli",
+      "cwd": "./packages/cli",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
       "name": "common",
       "cwd": "./packages/common",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
+      "name": "common-utils",
+      "cwd": "./packages/common-utils",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
+      "name": "jest-config",
+      "cwd": "./packages/jest-config",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
+      "name": "node-utils",
+      "cwd": "./packages/node-utils",
       "open": true,
       "focus": false,
       "command": "yarn start",
