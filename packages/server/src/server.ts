@@ -4,7 +4,7 @@ import * as readline from 'readline';
 import { JWTInput, OAuth2Client } from 'google-auth-library';
 import { google } from 'googleapis';
 
-import { User, USER_TYPE } from '@condohub/common';
+import { User, USER_TYPE } from '@condohub/models';
 
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly'];

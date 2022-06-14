@@ -1,6 +1,6 @@
 import { spawnSync } from 'child_process';
 
-import { Command } from '@oclif/command';
+import { Command } from '@oclif/core';
 
 import { getShellForPlatform } from '@condohub/node-utils';
 
@@ -20,7 +20,7 @@ export default class Depcheck extends Command {
   async run() {
     enableDebug();
 
-    const { args } = this.parse(Depcheck);
+    const { args } = await this.parse(Depcheck);
 
     this.log(`running in ${process.cwd()}`);
 

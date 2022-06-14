@@ -1,7 +1,7 @@
 {
-  "name": "@condohub/common",
+  "name": "@condohub/apis",
   "version": "1.0.0",
-  "description": "Data models and other common code shared between the UI and the server",
+  "description": "Utilities to interface with Google APIs (googleapis)",
   "author": {
     "email": "info@condohub.ca",
     "name": "CondoHub",
@@ -9,12 +9,16 @@
   },
   "homepage": "https://github.com/condohub/condohub",
   "repository": {
-    "directory": "packages/common",
+    "directory": "packages/apis",
     "type": "git",
     "url": "git+https://github.com/condohub/condohub.git"
   },
   "keywords": [
-    "models",
+    "apis",
+    "google",
+    "google-drive",
+    "google-sheets",
+    "google-forms",
     "condohub"
   ],
   "license": "MIT",
@@ -31,8 +35,8 @@
     "clean": "yarn clean:dist && yarn clean:tsc",
     "clean:dist": "rimraf -rf dist/**",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
-    "rename:commonjs": "renamer --chain ../node-utils/src/scripts/rename-cjs-extension.js './dist/cjs/**/*'",
-    "rename:watch": "nodemon --delay 1000 --watch dist/cjs --ext js --exec 'yarn rename:commonjs'",
+    "rename:commonjs": "renamer --chain ../node-utils/src/scripts/rename-cjs-extension.js \"./dist/cjs/**/*\"",
+    "rename:watch": "nodemon --delay 1000 --watch dist/cjs --ext js --exec \"yarn rename:commonjs\"",
     "prestart": "yarn build",
     "start": "concurrently \"yarn tsc:types:watch\" \"yarn swc:build:watch\" \"yarn swc:build:commonjs:watch\" \"yarn rename:watch\"",
     "swc:build": "yarn swc ./src --config-file ../../.swcrc --source-maps --ignore **/__test__/**/* --out-dir dist",
@@ -59,6 +63,11 @@
     "./package.json": "./package.json"
   },
   "type": "module",
-  "dependencies": {},
+  "types": "./dist/index.types.d.ts",
+  "dependencies": {
+    "@condohub/models": "*",
+    "google-auth-library": "^8",
+    "googleapis": "^100.0.0"
+  },
   "peerDependencies": {}
 }

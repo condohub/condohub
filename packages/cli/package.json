@@ -16,10 +16,9 @@
   "license": "MIT",
   "bugs": "https://github.com/https://github.com/condohub/condohub/issues",
   "bin": {
-    "condocli": "./bin/run.js"
+    "condocli": "./bin/run"
   },
-  "main": "src/index.js",
-  "module": "src/index.js",
+  "main": "dist/index.js",
   "files": [
     "/bin",
     "/oclif.manifest.json",
@@ -28,15 +27,17 @@
   ],
   "scripts": {
     "build": "yarn prepack",
-    "clean": "rimraf -rf lib/** && yarn postpack && rimraf -f *.tsbuildinfo",
-    "cli": "env-cmd -x ./bin/run.js",
-    "manifest": "env-cmd -x ./bin/run.js",
+    "clean": "rimraf -rf dist/** && yarn postpack && rimraf -f *.tsbuildinfo",
+    "cli": "env-cmd -x ./bin/run",
+    "dev": "env-cmd -x ./bin/dev",
     "postpack": "rimraf -f oclif.manifest.json",
-    "prepack": "rimraf -rf lib && yarn tsc:build && oclif-dev manifest && oclif-dev readme",
+    "prepack": "rimraf -rf lib && yarn tsc:build && oclif manifest && oclif readme",
+    "start": "yarn tsc:build:watch",
     "test": "jest",
     "tsc:build": "tsc -b",
     "tsc:build:watch": "yarn tsc:build -w",
-    "tsc:typecheck": "tsc --noEmit --composite false --incremental false"
+    "tsc:typecheck": "tsc --noEmit --composite false --incremental false",
+    "version": "oclif readme && git add README.md"
   },
   "exports": {
     ".": "./src/index.js",
@@ -45,17 +46,40 @@
   },
   "oclif": {
     "bin": "condocli",
-    "commands": "./lib/commands",
+    "commands": "./dist/commands",
+    "dirname": "condocli",
+    "flexibleTaxonomy": true,
+    "hooks": {
+      "command_incomplete": "./dist/hooks/command-incomplete",
+      "command_not_found": "./dist/hooks/command-not-found",
+      "init": "./dist/hooks/init",
+      "postrun": "./dist/hooks/postrun",
+      "prerun": "./dist/hooks/prerun"
+    },
     "plugins": [
       "@oclif/plugin-help"
-    ]
+    ],
+    "topicSeparator": " ",
+    "topics": {
+      "auth": {
+        "description": "Manage authentication to your CondoHub account and your Google Workspace"
+      },
+      "building": {
+        "description": "Add edit or remove buildings."
+      }
+    }
   },
   "types": "./types/index.d.ts",
   "dependencies": {
+    "@condohub/apis": "*",
+    "@condohub/models": "*",
     "@condohub/node-utils": "*",
+    "@oclif/config": "^1",
     "@oclif/core": "^1",
-    "@oclif/dev-cli": "^1.26.0",
+    "inquirer": "^8",
     "io-ts": "^2",
+    "listr2": "^4",
+    "oclif": "^3",
     "typescript": "^4"
   }
 }

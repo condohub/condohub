@@ -43,8 +43,8 @@
       "execute": false
     },
     {
-      "name": "common",
-      "cwd": "./packages/common",
+      "name": "models",
+      "cwd": "./packages/models",
       "open": true,
       "focus": false,
       "command": "yarn start",

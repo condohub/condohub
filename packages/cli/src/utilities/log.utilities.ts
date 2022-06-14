@@ -1,6 +1,12 @@
 import debug from 'debug';
 
 /**
+ *
+ * Debug
+ *
+ */
+
+/**
  * CLI debug namespace
  */
 export const NS = 'condohub:cli';
@@ -20,4 +26,27 @@ export function enableDebug() {
   if (process.env.DEBUG) {
     debugInstance.enable(process.env.DEBUG);
   }
+}
+
+/**
+ *
+ * Normal logging
+ *
+ */
+
+export function logCommand(message?: string, ...args: any[]) {
+  console.log(`－  ${message}`);
+}
+
+export function log(message?: string, ...args: any[]) {
+  console.log(`🏠  ${message}`);
+}
+
+export function warn(input: string | Error): string | Error {
+  if (input instanceof Error) {
+    console.log(`🏠  ${input}`);
+    return input;
+  }
+
+  console.warn(`🏠  ${input}`);
 }

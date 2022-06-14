@@ -120,25 +120,25 @@
       "typescriptreact"
     ],
     "workbench.colorCustomizations": {
-      "activityBar.activeBackground": "#023e73",
-      "activityBar.activeBorder": "#db0476",
-      "activityBar.background": "#023e73",
-      "activityBar.foreground": "#e7e7e7",
-      "activityBar.inactiveForeground": "#e7e7e799",
-      "activityBarBadge.background": "#db0476",
-      "activityBarBadge.foreground": "#e7e7e7",
-      "sash.hoverBorder": "#023e73",
-      "statusBar.background": "#012341",
-      "statusBar.foreground": "#e7e7e7",
-      "statusBarItem.hoverBackground": "#023e73",
-      "statusBarItem.remoteBackground": "#012341",
-      "statusBarItem.remoteForeground": "#e7e7e7",
-      "titleBar.activeBackground": "#012341",
-      "titleBar.activeForeground": "#e7e7e7",
-      "titleBar.inactiveBackground": "#01234199",
-      "titleBar.inactiveForeground": "#e7e7e799"
+      "activityBar.activeBackground": "#f889d0",
+      "activityBar.activeBorder": "#e7fbc3",
+      "activityBar.background": "#f889d0",
+      "activityBar.foreground": "#15202b",
+      "activityBar.inactiveForeground": "#15202b99",
+      "activityBarBadge.background": "#e7fbc3",
+      "activityBarBadge.foreground": "#15202b",
+      "sash.hoverBorder": "#f889d0",
+      "statusBar.background": "#f559bd",
+      "statusBar.foreground": "#15202b",
+      "statusBarItem.hoverBackground": "#f229aa",
+      "statusBarItem.remoteBackground": "#f559bd",
+      "statusBarItem.remoteForeground": "#15202b",
+      "titleBar.activeBackground": "#f559bd",
+      "titleBar.activeForeground": "#15202b",
+      "titleBar.inactiveBackground": "#f559bd99",
+      "titleBar.inactiveForeground": "#15202b99"
     },
-    "peacock.color": "#012341",
+    "peacock.color": "#f559bd",
     "[prisma]": {
       "editor.defaultFormatter": "Prisma.prisma"
     }
@@ -177,22 +177,7 @@
       "name": "condohub",
       "path": ".."
     },
-    {
-      "name": "app",
-      "path": "../packages/app"
-    },
-    {
-      "name": "apps-script",
-      "path": "../packages/apps-script"
-    },
-    {
-      "name": "cli",
-      "path": "../packages/cli"
-    },
-    {
-      "name": "common",
-      "path": "../packages/common"
-    },
+
     {
       "name": "common-utils",
       "path": "../packages/common-utils"
@@ -204,6 +189,26 @@
     {
       "name": "node-utils",
       "path": "../packages/node-utils"
+    },
+    {
+      "name": "models",
+      "path": "../packages/models"
+    },
+    {
+      "name": "apis",
+      "path": "../packages/apis"
+    },
+    {
+      "name": "cli",
+      "path": "../packages/cli"
+    },
+    {
+      "name": "app",
+      "path": "../packages/app"
+    },
+    {
+      "name": "apps-script",
+      "path": "../packages/apps-script"
     },
     {
       "name": "server",

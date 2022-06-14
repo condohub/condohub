@@ -25,7 +25,9 @@
   "sideEffects": false,
   "type": "module",
   "dependencies": {
-    "@condohub/common": "*",
+    "@condohub/apis": "*",
+    "@condohub/models": "*",
+    "google-auth-library": "^8",
     "googleapis": "^100.0.0"
   }
 }

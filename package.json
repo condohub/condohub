@@ -8,7 +8,8 @@
     "packages": [
       "packages/apps-script",
       "packages/cli",
-      "packages/common",
+      "packages/models",
+      "packages/apis",
       "packages/common-utils",
       "packages/jest-config",
       "packages/node-utils",
@@ -118,6 +119,7 @@
     "@types/fs-extra": "^9.0.11",
     "@types/google-apps-script": "^1.0.20",
     "@types/googlemaps": "^3.43.2",
+    "@types/inquirer": "^8",
     "@types/jest": "^27",
     "@types/jest-environment-puppeteer": "^4.3.1",
     "@types/lodash": "^4.14",

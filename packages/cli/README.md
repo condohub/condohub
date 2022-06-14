@@ -21,7 +21,7 @@ https://oclif.io/docs/releasing
 $ npm install -g @condohub/cli
 $ condocli COMMAND
 running command...
-$ condocli (-v|--version|version)
+$ condocli (--version)
 @condohub/cli/1.0.1 darwin-arm64 node-v16.14.0
 $ condocli --help [COMMAND]
 USAGE
@@ -33,11 +33,29 @@ USAGE
 # Commands
 
 <!-- commands -->
+* [`condocli auth [TEST]`](#condocli-auth-test)
 * [`condocli depcheck [ARGS]`](#condocli-depcheck-args)
 * [`condocli hello [ARGS]`](#condocli-hello-args)
 * [`condocli help [COMMAND]`](#condocli-help-command)
 * [`condocli jest [ARGS]`](#condocli-jest-args)
 * [`condocli jest-watch [ARGS]`](#condocli-jest-watch-args)
+
+## `condocli auth [TEST]`
+
+Auth command
+
+```
+USAGE
+  $ condocli auth [TEST]
+
+DESCRIPTION
+  Auth command
+
+EXAMPLES
+  $ condocli auth
+```
+
+_See code: [dist/commands/auth/index.js](https://github.com/condohub/condohub/blob/v1.0.1/dist/commands/auth/index.js)_
 
 ## `condocli depcheck [ARGS]`
 
@@ -47,11 +65,14 @@ Shortcut to run depcheck
 USAGE
   $ condocli depcheck [ARGS]
 
-EXAMPLE
+DESCRIPTION
+  Shortcut to run depcheck
+
+EXAMPLES
   $ nr depcheck
 ```
 
-_See code: [lib/commands/depcheck.js](https://github.com/condohub/condohub/blob/v1.0.1/lib/commands/depcheck.js)_
+_See code: [dist/commands/depcheck.js](https://github.com/condohub/condohub/blob/v1.0.1/dist/commands/depcheck.js)_
 
 ## `condocli hello [ARGS]`
 
@@ -61,28 +82,34 @@ Dummy test command
 USAGE
   $ condocli hello [ARGS]
 
-EXAMPLE
+DESCRIPTION
+  Dummy test command
+
+EXAMPLES
   $ condohub hello
 ```
 
-_See code: [lib/commands/hello.js](https://github.com/condohub/condohub/blob/v1.0.1/lib/commands/hello.js)_
+_See code: [dist/commands/hello.js](https://github.com/condohub/condohub/blob/v1.0.1/dist/commands/hello.js)_
 
 ## `condocli help [COMMAND]`
 
-display help for condocli
+Display help for condocli.
 
 ```
 USAGE
-  $ condocli help [COMMAND]
+  $ condocli help [COMMAND] [-n]
 
 ARGUMENTS
-  COMMAND  command to show help for
+  COMMAND  Command to show help for.
 
-OPTIONS
-  --all  see all commands in CLI
+FLAGS
+  -n, --nested-commands  Include all nested commands in the output.
+
+DESCRIPTION
+  Display help for condocli.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.18/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.12/src/commands/help.ts)_
 
 ## `condocli jest [ARGS]`
 
@@ -90,16 +117,19 @@ Shortcut to run jest with typescript (ts-node)
 
 ```
 USAGE
-  $ condocli jest [ARGS]
+  $ condocli jest [ARGS] [--config <value>]
 
-OPTIONS
-  --config=config  [default: jest.config.ts] path to jest config file
+FLAGS
+  --config=<value>  [default: jest.config.ts] path to jest config file
 
-EXAMPLE
+DESCRIPTION
+  Shortcut to run jest with typescript (ts-node)
+
+EXAMPLES
   $ nr jest
 ```
 
-_See code: [lib/commands/jest.js](https://github.com/condohub/condohub/blob/v1.0.1/lib/commands/jest.js)_
+_See code: [dist/commands/jest.js](https://github.com/condohub/condohub/blob/v1.0.1/dist/commands/jest.js)_
 
 ## `condocli jest-watch [ARGS]`
 
@@ -107,14 +137,17 @@ Shortcut to run jest with typescript (ts-node)
 
 ```
 USAGE
-  $ condocli jest-watch [ARGS]
+  $ condocli jest-watch [ARGS] [--config <value>]
 
-OPTIONS
-  --config=config  [default: jest.config.ts] path to jest config file
+FLAGS
+  --config=<value>  [default: jest.config.ts] path to jest config file
 
-EXAMPLE
+DESCRIPTION
+  Shortcut to run jest with typescript (ts-node)
+
+EXAMPLES
   $ nr jest
 ```
 
-_See code: [lib/commands/jest-watch.js](https://github.com/condohub/condohub/blob/v1.0.1/lib/commands/jest-watch.js)_
+_See code: [dist/commands/jest-watch.js](https://github.com/condohub/condohub/blob/v1.0.1/dist/commands/jest-watch.js)_
 <!-- commandsstop -->
