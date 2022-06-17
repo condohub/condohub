@@ -1,4 +1,4 @@
 # include prebuilts bin and lib files
 !/bin/
-!/lib
+!/dist/
 bin/condohub
