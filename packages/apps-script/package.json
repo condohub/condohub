@@ -23,7 +23,7 @@
     "clasp": "clasp",
     "clasp:watch": "clasp push --watch",
     "clean": "echo ok",
-    "start": "yarn clasp:watch"
+    "start": "npm run clasp:watch"
   },
   "sideEffects": false,
   "typings": "./lib/index.d.ts",

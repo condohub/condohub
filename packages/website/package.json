@@ -31,7 +31,7 @@
     "build": "echo ok",
     "clean": "rimraf -rf dist/**",
     "serve": "http-server -c-1 src",
-    "start": "nodemon --watch src/ --exec \"yarn serve\""
+    "start": "nodemon --watch src/ --exec \"npm run serve\""
   },
   "sideEffects": false,
   "type": "module",

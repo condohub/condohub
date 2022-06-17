@@ -14,14 +14,27 @@ https://oclif.io/docs/releasing
 ## Content
 
 <!-- toc -->
-* [CondoHub CLI](#condohub-cli)
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [CondoHub CLI](#condohub-cli)
+  - [Content](#content)
+- [Usage](#usage)
+- [Commands](#commands)
+  - [`condohub auth [TEST]`](#condohub-auth-test)
+  - [`condohub auth login [TEST]`](#condohub-auth-login-test)
+  - [`condohub config delete [TEST]`](#condohub-config-delete-test)
+  - [`condohub config init`](#condohub-config-init)
+  - [`condohub depcheck [ARGS]`](#condohub-depcheck-args)
+  - [`condohub hello [WORD]`](#condohub-hello-word)
+  - [`condohub help [COMMAND]`](#condohub-help-command)
+  - [`condohub jest [ARGS]`](#condohub-jest-args)
+  - [`condohub jest-watch [ARGS]`](#condohub-jest-watch-args)
+  - [Debugging](#debugging)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g @condohub/cli
 $ condohub COMMAND
@@ -33,20 +46,22 @@ USAGE
   $ condohub COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-* [`condohub auth [TEST]`](#condohub-auth-test)
-* [`condohub auth login [TEST]`](#condohub-auth-login-test)
-* [`condohub config delete [TEST]`](#condohub-config-delete-test)
-* [`condohub config init`](#condohub-config-init)
-* [`condohub depcheck [ARGS]`](#condohub-depcheck-args)
-* [`condohub hello [WORD]`](#condohub-hello-word)
-* [`condohub help [COMMAND]`](#condohub-help-command)
-* [`condohub jest [ARGS]`](#condohub-jest-args)
-* [`condohub jest-watch [ARGS]`](#condohub-jest-watch-args)
+
+- [`condohub auth [TEST]`](#condohub-auth-test)
+- [`condohub auth login [TEST]`](#condohub-auth-login-test)
+- [`condohub config delete [TEST]`](#condohub-config-delete-test)
+- [`condohub config init`](#condohub-config-init)
+- [`condohub depcheck [ARGS]`](#condohub-depcheck-args)
+- [`condohub hello [WORD]`](#condohub-hello-word)
+- [`condohub help [COMMAND]`](#condohub-help-command)
+- [`condohub jest [ARGS]`](#condohub-jest-args)
+- [`condohub jest-watch [ARGS]`](#condohub-jest-watch-args)
 
 ## `condohub auth [TEST]`
 
@@ -63,7 +78,8 @@ EXAMPLES
   $ condohub  auth
 ```
 
-_See code: [dist/commands/auth/index.js](https://github.com/condohub/condohub/blob/v1.0.1/dist/commands/auth/index.js)_
+_See code:
+[dist/commands/auth/index.js](https://github.com/condohub/condohub/blob/v1.0.1/dist/commands/auth/index.js)_
 
 ## `condohub auth login [TEST]`
 
@@ -125,7 +141,8 @@ EXAMPLES
   $ nr depcheck
 ```
 
-_See code: [dist/commands/depcheck.js](https://github.com/condohub/condohub/blob/v1.0.1/dist/commands/depcheck.js)_
+_See code:
+[dist/commands/depcheck.js](https://github.com/condohub/condohub/blob/v1.0.1/dist/commands/depcheck.js)_
 
 ## `condohub hello [WORD]`
 
@@ -142,7 +159,8 @@ EXAMPLES
   $ condohub hello world
 ```
 
-_See code: [dist/commands/hello.js](https://github.com/condohub/condohub/blob/v1.0.1/dist/commands/hello.js)_
+_See code:
+[dist/commands/hello.js](https://github.com/condohub/condohub/blob/v1.0.1/dist/commands/hello.js)_
 
 ## `condohub help [COMMAND]`
 
@@ -162,7 +180,8 @@ DESCRIPTION
   Display help for condohub.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.12/src/commands/help.ts)_
+_See code:
+[@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.12/src/commands/help.ts)_
 
 ## `condohub jest [ARGS]`
 
@@ -182,7 +201,8 @@ EXAMPLES
   $ nr jest
 ```
 
-_See code: [dist/commands/jest.js](https://github.com/condohub/condohub/blob/v1.0.1/dist/commands/jest.js)_
+_See code:
+[dist/commands/jest.js](https://github.com/condohub/condohub/blob/v1.0.1/dist/commands/jest.js)_
 
 ## `condohub jest-watch [ARGS]`
 
@@ -202,11 +222,13 @@ EXAMPLES
   $ nr jest
 ```
 
-_See code: [dist/commands/jest-watch.js](https://github.com/condohub/condohub/blob/v1.0.1/dist/commands/jest-watch.js)_
+_See code:
+[dist/commands/jest-watch.js](https://github.com/condohub/condohub/blob/v1.0.1/dist/commands/jest-watch.js)_
+
 <!-- commandsstop -->
 
 ## Debugging
 
 ```
-DEBUG=condohub:cli:init* yarn cli config init
+DEBUG=condohub:cli:init* npm exec condohub config init
 ```

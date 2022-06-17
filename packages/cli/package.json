@@ -26,8 +26,8 @@
     "/types"
   ],
   "scripts": {
-    "build": "yarn tsc:types && yarn swc:build:commonjs",
-    "clean": "yarn clean:dist && yarn clean:tsc && yarn clean:oclif",
+    "build": "npm run tsc:types && npm run swc:build:commonjs",
+    "clean": "npm run clean:dist && npm run clean:tsc && npm run clean:oclif",
     "clean:dist": "rimraf -rf dist/**",
     "clean:oclif": "rimraf -f oclif.manifest.json",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
@@ -36,18 +36,18 @@
     "oclif:readme": "oclif readme",
     "oclif:version": "oclif readme && git add README.md",
     "postpack": "clean:oclif",
-    "prepack": "yarn clean && yarn build && yarn oclif:manifest && yarn oclif:readme",
-    "prestart": "yarn build",
-    "start": "concurrently \"yarn tsc:types:watch\" \"yarn swc:build:commonjs:watch\"",
-    "swc:build": "yarn swc ./src --config-file ../../.swcrc --source-maps --ignore **/__test__/**/* --out-dir dist",
-    "swc:build:commonjs": "yarn swc:build --config-file ../../.swcrc-commonjs --out-dir dist",
-    "swc:build:commonjs:watch": "yarn swc:build:commonjs --watch",
+    "prepack": "npm run clean && npm run build && npm run oclif:manifest && npm run oclif:readme",
+    "prestart": "npm run build",
+    "start": "concurrently \"npm run tsc:types:watch\" \"npm run swc:build:commonjs:watch\"",
+    "swc:build": "swc ./src --config-file ../../.swcrc --source-maps --ignore **/__test__/**/* --out-dir dist",
+    "swc:build:commonjs": "npm run swc:build --config-file ../../.swcrc-commonjs --out-dir dist",
+    "swc:build:commonjs:watch": "npm run swc:build:commonjs --watch",
     "test": "jest --passWithNoTests",
     "test:clean": "jest --clearCache",
     "test:watch": "jest --passWithNoTests --watch",
     "tsc:typecheck": "tsc --noEmit",
     "tsc:types": "tsc --noEmit",
-    "tsc:types:watch": "yarn tsc:types --watch --preserveWatchOutput"
+    "tsc:types:watch": "npm run tsc:types --watch --preserveWatchOutput"
   },
   "exports": {
     ".": "./src/index.js",

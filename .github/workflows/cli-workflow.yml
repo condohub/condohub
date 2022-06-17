@@ -64,20 +64,20 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           clean: false
 
-      - name: 'Checkout, Setup NodeJS + yarn and install dependencies'
+      - name: 'Checkout, Setup NodeJS and install dependencies'
         uses: ./.github/actions/base-node-setup
 
       - name: Verify dependencies
-        run: yarn lerna:depcheck --scope @condohub/cli
+        run: npm run lerna:depcheck -- --scope @condohub/cli
 
       - name: Typecheck
-        run: yarn lerna:typecheck --scope @condohub/cli
+        run: npm run lerna:typecheck -- --scope @condohub/cli
 
       - name: Lint (ls-lint) source files
-        run: yarn lerna:ls-lint --scope @condohub/cli
+        run: npm run lerna:ls-lint -- --scope @condohub/cli
 
       - name: Lint source files
-        run: yarn eslint ./packages/cli/src/ --ext "ts,tsx"
+        run: npm exec eslint -- ./packages/cli/src/ --ext "ts,tsx"
 
       - name: Run unit tests
-        run: yarn lerna:test --scope @condohub/cli
+        run: npm run lerna:test -- --scope @condohub/cli
