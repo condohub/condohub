@@ -64,13 +64,13 @@ jobs:
         uses: ./.github/actions/base-node-setup
 
       - name: Verify dependencies
-        run: yarn lerna:depcheck --scope @newrade/core-node-utils
+        run: npm run lerna:depcheck --scope @newrade/core-node-utils
 
       - name: Lint (ls-lint) source files
-        run: yarn lerna:ls-lint --scope @newrade/core-node-utils
+        run: npm run lerna:ls-lint --scope @newrade/core-node-utils
 
       - name: Lint source files
-        run: yarn eslint ./packages/core-node-utils/src/ --ext "ts,tsx"
+        run: npm run eslint ./packages/core-node-utils/src/ --ext "ts,tsx"
 
       - name: Typecheck
-        run: yarn lerna:typecheck --scope @newrade/core-node-utils
+        run: npm run lerna:typecheck --scope @newrade/core-node-utils

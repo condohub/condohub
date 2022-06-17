@@ -24,7 +24,7 @@ export default class Depcheck extends Command {
 
     this.log(`running in ${process.cwd()}`);
 
-    const command = spawnSync(`yarn depcheck ${args.args || ''}`, {
+    const command = spawnSync(`npm exec depcheck ${args.args || ''}`, {
       shell: getShellForPlatform(),
       stdio: ['inherit', 'pipe', 'pipe'],
       env: process.env,

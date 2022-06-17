@@ -24,7 +24,7 @@ class Depcheck extends _core.Command {
         (0, _logUtilities).enableDebug();
         const { args  } = await this.parse(Depcheck);
         this.log(`running in ${process.cwd()}`);
-        const command = (0, _childProcess).spawnSync(`yarn depcheck ${args.args || ""}`, {
+        const command = (0, _childProcess).spawnSync(`npm exec depcheck ${args.args || ""}`, {
             shell: (0, _nodeUtils).getShellForPlatform(),
             stdio: [
                 "inherit",

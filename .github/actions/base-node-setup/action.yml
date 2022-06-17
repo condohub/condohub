@@ -8,8 +8,8 @@
 
 
 
-name: 'Checkout, Setup NodeJS + yarn and install dependencies'
-description: 'Basic steps to setup a build with NodeJS and yarn'
+name: 'Checkout, Setup NodeJS and install dependencies'
+description: 'Basic steps to setup a build with NodeJS and npm'
 runs:
     using: "composite"
     steps:
@@ -53,10 +53,16 @@ runs:
         run: echo $NODE_OPTIONS && node -e 'console.log(`node heap limit = ${require("v8").getHeapStatistics().heap_size_limit / (1024 * 1024)} Mb`)'
         shell: bash
 
-      - name: Set up yarn
-        run: npm i -g yarn && yarn --version
+      - name: Set npm cache location
+        run: npm config set cache $(pwd)/../.npm-cache
+        shell: bash
+
+      - name: Print npm configuration
+        run: npm config list
         shell: bash
 
       - name: Install dependencies and build core packages
-        run: YARN_CACHE_FOLDER=$(pwd)/../.yarn-cache yarn --prefer-offline --frozen-lockfile
+        run: npm ci --legacy-peer-deps
         shell: bash
+
+

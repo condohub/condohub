@@ -67,16 +67,16 @@ jobs:
         uses: ./.github/actions/base-node-setup
 
       - name: Verify dependencies
-        run: yarn lerna:depcheck --scope @newrade/core-jest-config
+        run: npm run lerna:depcheck --scope @newrade/core-jest-config
 
       - name: Lint (ls-lint) source files
-        run: yarn lerna:ls-lint --scope @newrade/core-jest-config
+        run: npm run lerna:ls-lint --scope @newrade/core-jest-config
 
       - name: Lint source files
-        run: yarn eslint ./packages/core-jest-config/src/ --ext "ts,tsx"
+        run: npm run eslint ./packages/core-jest-config/src/ --ext "ts,tsx"
 
       - name: Run unit tests
-        run: yarn lerna:test --scope @newrade/core-jest-config
+        run: npm run lerna:test --scope @newrade/core-jest-config
 
       - name: Build package
-        run: yarn lerna:build --scope @newrade/core-jest-config
+        run: npm run lerna:build --scope @newrade/core-jest-config

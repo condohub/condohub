@@ -208,5 +208,5 @@ _See code: [dist/commands/jest-watch.js](https://github.com/condohub/condohub/bl
 ## Debugging
 
 ```
-DEBUG=condohub:cli:init* yarn cli config init
+DEBUG=condohub:cli:init* npm exec condohub config init
 ```

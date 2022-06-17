@@ -3,9 +3,9 @@
 ## Quickstart
 
 ```bash
-yarn build
+npm run build
 
-yarn test
+npm run test
 ```
 
 ---

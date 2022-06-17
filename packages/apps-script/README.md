@@ -7,13 +7,13 @@ Clasp: https://github.com/google/clasp
 ## Development
 
 ```bash
-yarn start
+npm run start
 ```
 
 ## Deploying
 
 ```bash
-yarn clasp login
+npm exec clasp login
 ```
 
 ## Setup
@@ -21,5 +21,5 @@ yarn clasp login
 Login with clasp:
 
 ```bash
-yarn clasp login
+npm exec login
 ```

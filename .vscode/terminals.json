@@ -23,7 +23,7 @@
       "cwd": "./packages/app",
       "open": true,
       "focus": false,
-      "command": "yarn start",
+      "command": "npm run start",
       "execute": false
     },
     {
@@ -31,7 +31,7 @@
       "cwd": "./packages/apps-script",
       "open": true,
       "focus": false,
-      "command": "yarn start",
+      "command": "npm run start",
       "execute": false
     },
     {
@@ -39,7 +39,7 @@
       "cwd": "./packages/cli",
       "open": true,
       "focus": false,
-      "command": "yarn start",
+      "command": "npm run start",
       "execute": false
     },
     {
@@ -47,7 +47,7 @@
       "cwd": "./packages/models",
       "open": true,
       "focus": false,
-      "command": "yarn start",
+      "command": "npm run start",
       "execute": false
     },
     {
@@ -55,7 +55,7 @@
       "cwd": "./packages/common-utils",
       "open": true,
       "focus": false,
-      "command": "yarn start",
+      "command": "npm run start",
       "execute": false
     },
     {
@@ -63,7 +63,7 @@
       "cwd": "./packages/jest-config",
       "open": true,
       "focus": false,
-      "command": "yarn start",
+      "command": "npm run start",
       "execute": false
     },
     {
@@ -71,7 +71,7 @@
       "cwd": "./packages/node-utils",
       "open": true,
       "focus": false,
-      "command": "yarn start",
+      "command": "npm run start",
       "execute": false
     },
     {
@@ -79,7 +79,7 @@
       "cwd": "./packages/server",
       "open": true,
       "focus": false,
-      "command": "yarn start",
+      "command": "npm run start",
       "execute": false
     },
     {
@@ -87,7 +87,7 @@
       "cwd": "./packages/website",
       "open": true,
       "focus": false,
-      "command": "yarn start",
+      "command": "npm run start",
       "execute": false
     }
   ]

@@ -3,6 +3,6 @@
     "format-package -w"
   ],
   "disabled.{js,ts,tsx}": [
-    "yarn lint:fix"
+    "npm run lint:fix"
   ]
 }

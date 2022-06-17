@@ -24,7 +24,6 @@ pids
 
 # npm
 node_modules
-packages/**/package-lock.json
 
 # lerna
 lerna-debug.log
