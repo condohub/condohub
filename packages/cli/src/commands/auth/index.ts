@@ -17,7 +17,7 @@ export default class Auth extends Command {
 
   static description = 'Auth command';
 
-  static examples = [`$ condocli auth`];
+  static examples = [`$ condohub  auth`];
 
   static args = [{ name: 'test' }];
 

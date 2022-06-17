@@ -1,0 +1,4 @@
+{
+  "ignorePatterns": ["/built", "/lib", "/dist", ".git", "node_modules"],
+  "ignores": ["debug", "@condohub/node-utils"]
+}

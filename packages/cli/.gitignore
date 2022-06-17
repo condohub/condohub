@@ -9,4 +9,4 @@ npm-debug.log
 /test/deploy
 node_modules
 !/bin/
-bin/condocli
+bin/condohub

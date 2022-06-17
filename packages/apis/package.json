@@ -66,6 +66,7 @@
   "types": "./dist/index.types.d.ts",
   "dependencies": {
     "@condohub/models": "*",
+    "google-auth-library": "^7",
     "googleapis": "^100.0.0"
   },
   "peerDependencies": {}

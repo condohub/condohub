@@ -19,6 +19,8 @@ export default class BaseCommand extends Command {
       this.logWarnDebug = debugInstance(`${NS}:${commandConfig.name}:warn`);
       this.logErrorDebug = debugInstance(`${NS}:${commandConfig.name}:error`);
     }
+
+    this.logDebug('command called');
   }
 
   async run() {}

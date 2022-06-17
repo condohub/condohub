@@ -21,6 +21,7 @@
     "graphql",
     "graphql-*",
     "jest",
+    "@jest/types",
     "puppeteer",
     "react-dom",
     "react",
@@ -37,6 +38,7 @@
     "webpack-dev-server",
     "webpack",
     "webpack-merge",
-    "webpack-node-externals"
+    "webpack-node-externals",
+    "@condohub/jest-config"
   ]
 }

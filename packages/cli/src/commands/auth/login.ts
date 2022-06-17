@@ -18,7 +18,7 @@ interface Ctx {
 export default class AuthLogin extends BaseCommand {
   static description = 'Auth login';
 
-  static examples = [`$ condocli auth login`];
+  static examples = [`$ condohub  auth login`];
 
   static args = [{ name: 'test' }];
 
