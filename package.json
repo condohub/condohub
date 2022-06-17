@@ -132,7 +132,7 @@
     "@ls-lint/ls-lint": "^1.10.0",
     "@svgr/webpack": "^5.5.0",
     "@swc/cli": "^0.1.57",
-    "@swc/core": "^1.2.197",
+    "@swc/core": "^1",
     "@swc/jest": "^0.2.21",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^13.0.0",
@@ -249,5 +249,8 @@
     "webpack-hot-middleware": "^2",
     "webpack-plugin-serve": "^1",
     "webpack-watched-glob-entries-plugin": "^2.2.2"
+  },
+  "optionalDependencies": {
+    "@swc/core-linux-x64-gnu": "^1"
   }
 }

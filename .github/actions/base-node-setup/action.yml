@@ -62,7 +62,7 @@ runs:
         shell: bash
 
       - name: Install dependencies and build core packages
-        run: npm ci
+        run: npm ci --legacy-peer-deps
         shell: bash
 
 
