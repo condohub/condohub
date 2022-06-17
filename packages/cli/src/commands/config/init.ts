@@ -14,18 +14,12 @@ import {
  * @see https://oclif.io/docs/config
  */
 export default class InitUserConfig extends BaseCommand {
-  static description = 'Create local .condohub config';
+  static description = 'Init local .condohub config';
 
-  static examples = [`$ condohub  init`];
-
-  static args = [{ name: 'test' }];
+  static examples = [`$ condohub config init`];
 
   constructor(argv: string[], config: Config) {
-    super(argv, config, { name: 'init' });
-  }
-
-  async init() {
-    let [id, ...argv] = this.argv;
+    super(argv, config, { name: 'config:init' });
   }
 
   async run() {

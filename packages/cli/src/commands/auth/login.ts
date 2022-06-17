@@ -1,6 +1,6 @@
 import { resolve } from 'path';
 
-import { Command } from '@oclif/core';
+import { Command, Config } from '@oclif/core';
 // @ts-ignore
 import { Listr } from 'listr2';
 import fs from 'node:fs/promises';
@@ -9,6 +9,7 @@ import { getAuthorizedClient } from '@condohub/apis';
 import { AppError, ERROR_TYPE } from '@condohub/common-utils';
 
 import BaseCommand from '../../base-command';
+import { getUserConfig } from '../../utilities/config.utilities';
 import { debugInstance, enableDebug, NS } from '../../utilities/log.utilities';
 
 interface Ctx {
@@ -16,11 +17,15 @@ interface Ctx {
 }
 
 export default class AuthLogin extends BaseCommand {
-  static description = 'Auth login';
+  static description = 'Authenticate your CLI client';
 
-  static examples = [`$ condohub  auth login`];
+  static examples = [`$ condohub auth login`];
 
   static args = [{ name: 'test' }];
+
+  constructor(argv: string[], config: Config) {
+    super(argv, config, { name: 'auth:login' });
+  }
 
   async init() {
     let [id, ...argv] = this.argv;
@@ -31,7 +36,7 @@ export default class AuthLogin extends BaseCommand {
 
     let credentials: string;
     try {
-      credentials = (await fs.readFile('credentials.json')).toString();
+      getUserConfig(this.config);
     } catch (error) {
       throw new AppError({
         name: ERROR_TYPE.ENV_ERROR,

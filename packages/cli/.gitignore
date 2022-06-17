@@ -1,12 +1,4 @@
-.idea
-.DS_Store
-npm-debug.log
-*-debug.log
-*-error.log
-/coverage
-/dist
-/lib
-/test/deploy
-node_modules
+# include prebuilts bin and lib files
 !/bin/
+!/lib
 bin/condohub

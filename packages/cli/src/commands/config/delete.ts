@@ -8,9 +8,9 @@ import { deleteUserConfig, getUserConfig } from '../../utilities/config.utilitie
  * Delete local user configuration
  */
 export default class DeleteUserConfig extends BaseCommand {
-  static description = 'Create local .condohub config';
+  static description = 'Delete local .condohub config';
 
-  static examples = [`$ condohub  init`];
+  static examples = [`$ condohub config delete`];
 
   static args = [{ name: 'test' }];
 

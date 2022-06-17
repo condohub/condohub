@@ -30,6 +30,7 @@ packages/**/package-lock.json
 lerna-debug.log
 
 # jest
+/coverage
 _reports
 __metrics__
 junit.xml
