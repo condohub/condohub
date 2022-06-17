@@ -47,7 +47,7 @@
     "test:watch": "jest --passWithNoTests --watch",
     "tsc:typecheck": "tsc --noEmit",
     "tsc:types": "npm exec tsc -b",
-    "tsc:types:watch": "npm run tsc:types --watch --preserveWatchOutput"
+    "tsc:types:watch": "npm run tsc:types -- --watch --preserveWatchOutput"
   },
   "exports": {
     ".": {
