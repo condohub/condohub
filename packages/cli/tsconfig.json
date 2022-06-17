@@ -7,8 +7,10 @@
     "module": "CommonJS",
     "skipLibCheck": true,
     "target": "ES2020",
+    "strict": true,
     "rootDir": "src",
     "outDir": "./dist",
+    "types": ["node", "jest", "chai"],
     "lib": ["ES2020"]
   },
   "include": ["src"]

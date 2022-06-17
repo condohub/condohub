@@ -4,12 +4,9 @@ import { google } from 'googleapis';
 import { User, USER_TYPE } from '@condohub/models';
 
 /**
- * Create an OAuth2 client with the given credentials, and then execute the
- * given callback function.
- * @param {Object} credentials The authorization client credentials.
- * @param {function} callback The callback to call with the authorized client.
+ * Create an OAuth2 client with the given credentials
  */
-export function authorize(credentials: {
+export function getAuthorizedClient(credentials: {
   installed: JWTInput & { redirect_uris: string[] };
 }): OAuth2Client {
   const { client_secret, client_id, redirect_uris } = credentials.installed;

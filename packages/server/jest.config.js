@@ -1,9 +1,9 @@
 // @ts-check
 
-/// <reference types="@condohub/jest-config/types/jest-options" />
+/// <reference types="@jest/types" />
 
 import { baseJestConfig } from '@condohub/jest-config';
-/** {jest.InitialOptions} */
+/** @type {import('ts-jest').InitialOptionsTsJest} */
 const config = {
   ...baseJestConfig,
   setupFilesAfterEnv: ['<rootDir>/test/jest-setup.ts'],

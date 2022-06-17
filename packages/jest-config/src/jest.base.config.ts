@@ -1,8 +1,8 @@
-import fs from 'fs';
+import type { Config } from '@jest/types';
 
 import { includedLibToCompile } from './included-libs.js';
 
-export const baseJestConfig: jest.InitialOptions & { extensionsToTreatAsEsm?: string[] } = {
+export const baseJestConfig: Config.InitialOptions = {
   // see https://jestjs.io/docs/configuration#extensionstotreatasesm-arraystring
   preset: 'ts-jest',
   modulePaths: ['../../<rootDir>/node_modules', '<rootDir>/node_modules', '<rootDir>'],

@@ -3,7 +3,6 @@ import { google } from 'googleapis';
 
 /**
  * Lists the names and IDs of up to 10 files.
- * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
 export function listFiles(oAuth2Client: OAuth2Client) {
   const drive = google.drive({ version: 'v3', auth: oAuth2Client });

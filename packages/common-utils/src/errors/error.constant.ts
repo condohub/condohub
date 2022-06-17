@@ -14,6 +14,7 @@ export enum ERROR_TYPE {
   LIB_ERROR = 'LIB_ERROR',
   WEBPACK_ERROR = 'WEBPACK_ERROR',
   GATSBY_ERROR = 'GATSBY_ERROR',
+  CLI_ERROR = 'CLI_ERROR',
   //
   // client side
   //
@@ -33,11 +34,11 @@ export enum ERROR_TYPE {
   //
   // server side
   //
+  ENV_ERROR = 'ENV_ERROR', // missing env vars, etc.
   DTO_VALIDATION_ERROR = 'DTO_VALIDATION_ERROR',
   RATE_LIMITING_ERROR = 'RATE_LIMITING_ERROR',
   UNPROCESSABLE_ENTITY = 'UNPROCESSABLE_ENTITY',
-  /** Error related to email, stmp etc. */
-  STMP_ERROR = 'STMP_ERROR',
+  STMP_ERROR = 'STMP_ERROR', // related to email, stmp etc
   //
   // others
   //

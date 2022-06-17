@@ -1,11 +1,17 @@
-import Hello from '../hello';
+import { expect, test } from '@oclif/test';
 
-describe('hello', () => {
-  it('should print "hello"', async () => {
-    let stdout = jest.spyOn(process.stdout, 'write');
+describe('the "hello" command', () => {
+  test
+    .stdout()
+    .command(['hello'])
+    .it('should output "hello"', (context) => {
+      expect(context.stdout).contain('hello');
+    });
 
-    await Hello.run([]);
-    expect(stdout).toHaveBeenCalledTimes(1);
-    expect(stdout).toHaveBeenCalledWith(`hello\n`);
-  });
+  test
+    .stdout()
+    .command(['hello', 'world'])
+    .it('should output "hello world"', (context) => {
+      expect(context.stdout).contain('hello world');
+    });
 });

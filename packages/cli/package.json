@@ -16,7 +16,7 @@
   "license": "MIT",
   "bugs": "https://github.com/https://github.com/condohub/condohub/issues",
   "bin": {
-    "condocli": "./bin/run"
+    "condohub": "./bin/run"
   },
   "main": "dist/index.js",
   "files": [
@@ -26,18 +26,27 @@
     "/types"
   ],
   "scripts": {
-    "build": "yarn prepack",
-    "clean": "rimraf -rf dist/** && yarn postpack && rimraf -f *.tsbuildinfo",
+    "build": "yarn tsc:types && yarn swc:build:commonjs",
+    "clean": "yarn clean:dist && yarn clean:tsc && yarn clean:oclif",
+    "clean:dist": "rimraf -rf dist/**",
+    "clean:oclif": "rimraf -f oclif.manifest.json",
+    "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
     "cli": "env-cmd -x ./bin/run",
-    "dev": "env-cmd -x ./bin/dev",
-    "postpack": "rimraf -f oclif.manifest.json",
-    "prepack": "rimraf -rf lib && yarn tsc:build && oclif manifest && oclif readme",
-    "start": "yarn tsc:build:watch",
-    "test": "jest",
-    "tsc:build": "tsc -b",
-    "tsc:build:watch": "yarn tsc:build -w",
-    "tsc:typecheck": "tsc --noEmit --composite false --incremental false",
-    "version": "oclif readme && git add README.md"
+    "oclif:manifest": "oclif manifest && oclif readme",
+    "oclif:version": "oclif readme && git add README.md",
+    "postpack": "clean:oclif",
+    "prepack": "yarn clean && yarn build && yarn oclif:manifest",
+    "prestart": "yarn build",
+    "start": "concurrently \"yarn tsc:types:watch\" \"yarn swc:build:commonjs:watch\"",
+    "swc:build": "yarn swc ./src --config-file ../../.swcrc --source-maps --ignore **/__test__/**/* --out-dir dist",
+    "swc:build:commonjs": "yarn swc:build --config-file ../../.swcrc-commonjs --out-dir dist",
+    "swc:build:commonjs:watch": "yarn swc:build:commonjs --watch",
+    "test": "jest --passWithNoTests",
+    "test:clean": "jest --clearCache",
+    "test:watch": "jest --passWithNoTests --watch",
+    "tsc:typecheck": "tsc --noEmit",
+    "tsc:types": "yarn tsc -b",
+    "tsc:types:watch": "yarn tsc:types --watch --preserveWatchOutput"
   },
   "exports": {
     ".": "./src/index.js",
@@ -45,9 +54,9 @@
     "./types": "./types/index.d.ts"
   },
   "oclif": {
-    "bin": "condocli",
+    "bin": "condohub",
     "commands": "./dist/commands",
-    "dirname": "condocli",
+    "dirname": "condohub",
     "flexibleTaxonomy": true,
     "hooks": {
       "command_incomplete": "./dist/hooks/command-incomplete",
@@ -72,10 +81,13 @@
   "types": "./types/index.d.ts",
   "dependencies": {
     "@condohub/apis": "*",
+    "@condohub/common-utils": "*",
     "@condohub/models": "*",
     "@condohub/node-utils": "*",
     "@oclif/config": "^1",
     "@oclif/core": "^1",
+    "@oclif/test": "^2",
+    "chai": "^4",
     "inquirer": "^8",
     "io-ts": "^2",
     "listr2": "^4",

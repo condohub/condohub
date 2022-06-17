@@ -1,11 +1,11 @@
 // @ts-check
 
-/// <reference types="@condohub/jest-config/types/jest-options" />
+/// <reference types="@jest/types" />
 
 import { puppeteerPreset } from '@condohub/jest-config';
 
 import jestConfig from './jest.config.js';
-/** {jest.InitialOptions} */
+/** @typedef {import('ts-jest').InitialOptionsTsJest} */
 const config = {
   ...puppeteerPreset,
   ...jestConfig,

@@ -2,10 +2,10 @@
 
 /// <reference types="@jest/types" />
 
-import { baseJestConfig } from '@condohub/jest-config';
-/** @type {import('ts-jest').InitialOptionsTsJest} */
+import { baseJestNodeConfig } from '@condohub/jest-config';
+/** @typedef {import('ts-jest').InitialOptionsTsJest} */
 const config = {
-  ...baseJestConfig,
+  ...baseJestNodeConfig,
   setupFilesAfterEnv: ['<rootDir>/test/jest-setup.ts'],
 };
 

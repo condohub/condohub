@@ -12,7 +12,7 @@ const hook: Hook.CommandNotFound = async function ({ config, argv }) {
     },
   ]);
 
-  if (argv.includes('--help') || argv.includes('-h')) {
+  if (argv?.includes('--help') || argv?.includes('-h')) {
     return config.runCommand('help', [toStandardizedId(command, config)]);
   }
 

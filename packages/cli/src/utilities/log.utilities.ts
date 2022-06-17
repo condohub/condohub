@@ -35,18 +35,19 @@ export function enableDebug() {
  */
 
 export function logCommand(message?: string, ...args: any[]) {
-  console.log(`－  ${message}`);
+  process.stdout.write(`－  ${message}`);
 }
 
 export function log(message?: string, ...args: any[]) {
-  console.log(`🏠  ${message}`);
+  process.stdout.write(`🏠  ${message}`);
 }
 
 export function warn(input: string | Error): string | Error {
   if (input instanceof Error) {
-    console.log(`🏠  ${input}`);
+    process.stdout.write(`🏠  ${input}`);
     return input;
   }
 
-  console.warn(`🏠  ${input}`);
+  process.stdout.write(`🏠  ${input}`);
+  return input;
 }
