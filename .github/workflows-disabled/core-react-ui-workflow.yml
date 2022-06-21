@@ -64,19 +64,19 @@ jobs:
         uses: ./.github/actions/base-node-setup
 
       - name: Verify dependencies
-        run: npm run lerna:depcheck --scope @newrade/core-react-ui
+        run: yarn lerna:depcheck --scope @newrade/core-react-ui
 
       - name: Lint (ls-lint) source files
-        run: npm run lerna:ls-lint --scope @newrade/core-react-ui
+        run: yarn lerna:ls-lint --scope @newrade/core-react-ui
 
       - name: Lint source files
-        run: npm run eslint ./packages/core-react-ui/src/ --ext "ts,tsx"
+        run: yarn eslint ./packages/core-react-ui/src/ --ext "ts,tsx"
 
       - name: Run unit tests
-        run: npm run lerna:test --scope @newrade/core-react-ui
+        run: yarn lerna:test --scope @newrade/core-react-ui
 
       - name: Build package
-        run: npm run lerna:build --scope @newrade/core-react-ui
+        run: yarn lerna:build --scope @newrade/core-react-ui
 
       # - name: Run package size report
       #   if: ${{ github.event_name == 'pull_request_target' || github.event_name == 'pull_request' }}

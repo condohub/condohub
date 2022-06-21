@@ -73,16 +73,16 @@ jobs:
         uses: ./.github/actions/base-node-setup
 
       - name: Verify dependencies
-        run: npm run lerna:depcheck --scope @newrade/core-css-extractor
+        run: yarn lerna:depcheck --scope @newrade/core-css-extractor
 
       - name: Lint (ls-lint) source files
-        run: npm run lerna:ls-lint --scope @newrade/core-css-extractor
+        run: yarn lerna:ls-lint --scope @newrade/core-css-extractor
 
       - name: Lint source files
-        run: npm run eslint ./packages/core-css-extractor/src/ --ext "ts,tsx"
+        run: yarn eslint ./packages/core-css-extractor/src/ --ext "ts,tsx"
 
       - name: Run extractor on sample files
-        run: npm run lerna:build --scope @newrade/core-css-extractor
+        run: yarn lerna:build --scope @newrade/core-css-extractor
 
       # - name: Build package
-      #   run: npm run lerna:build --scope @newrade/core-css-extractor
+      #   run: yarn lerna:build --scope @newrade/core-css-extractor

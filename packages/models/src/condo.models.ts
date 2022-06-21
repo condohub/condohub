@@ -17,6 +17,13 @@ export type Syndicate = {
   users: User[];
 };
 
+export type SyndicateProfile = {
+  syndicateId: string;
+  websiteUrl: string;
+  facebookPageUrl: string;
+  medias: Media[];
+};
+
 /**
  *
  * User Management
@@ -30,10 +37,11 @@ export enum USER_TYPE {
   MANAGER,
   OWNER,
   RENTER,
+  SUB_RENTER,
 }
 
 export type User = {
-  email: string;
+  email?: string;
   type: USER_TYPE;
   profile?: UserProfile;
 };
@@ -41,6 +49,11 @@ export type User = {
 export type UserProfile = {
   firstName: string;
   lastName: string;
+  email: string;
+  phone: string;
+  phoneWork: string;
+  useDifferentAddress: boolean;
+  emergencyContacts: UserProfile[];
 };
 
 /**
@@ -63,7 +76,7 @@ export type Address = {};
 
 export type Building = {
   name: string;
-  addresses: Address[];
+  addresses: Address;
   units: Unit[];
   equipments: Equipment[];
   maintenanceSchedule: MaintenanceSchedule;
@@ -73,7 +86,46 @@ export type Building = {
 export type Unit = {
   name: string;
   floor: string;
+  ownerUserId?: string;
+  renterUserId?: string;
+  renovationHistory: UnitRenovationRecord[];
+  occupantHistory: UnitOccupantRecord[];
 };
+
+export enum UNIT_RENOVATION_STATUS {
+  SUBMITTED,
+  PENDING,
+  APPROVED,
+}
+
+export type UnitRenovationRecord = {
+  date: Date;
+  description: string;
+  categories: SUPPLIER_CATEGORY[];
+  status: UNIT_RENOVATION_STATUS;
+  supplier: Supplier;
+  medias: Media[];
+};
+
+export enum UNIT_CHANGE_STATUS {
+  SUBMITTED,
+  PENDING,
+  APPROVED,
+}
+
+export type UnitOccupantRecord = {
+  date: Date;
+  description: string;
+  previousOccupants: User[];
+  updatedOccupants: User[];
+  status: UNIT_CHANGE_STATUS;
+};
+
+/**
+ *
+ * Access Management
+ *
+ */
 
 export type KeyRegistry = {
   keys: Key[];
@@ -161,7 +213,7 @@ export type Equipment = {
   medias: Media[];
   invoices: Invoice[];
   documentation: Documentation[];
-  maintenance: EquipmentMaintenance[];
+  history: EquipmentMaintenanceRecord[];
 };
 
 export enum EQUIPMENT_STATUS {
@@ -185,7 +237,7 @@ export enum EQUIPMENT_ACTION_SEVERITY {
   LOW,
 }
 
-export type EquipmentMaintenance = {
+export type EquipmentMaintenanceRecord = {
   date: Date;
   description: string;
   action: EQUIPMENT_ACTION;
@@ -204,7 +256,24 @@ export type Supplier = {
   website: string;
   addresses: Address[];
   originalBuildingSupplier: boolean;
+  licenceNo: string;
 };
+
+export enum SUPPLIER_CATEGORY {
+  PLUMBING,
+}
+
+/**
+ *
+ * RFC
+ *
+ */
+
+export type RenovationRequest = {
+  unitIds: string[];
+};
+
+export type ResidentChangeRequest = {};
 
 /**
  *

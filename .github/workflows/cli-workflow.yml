@@ -68,16 +68,16 @@ jobs:
         uses: ./.github/actions/base-node-setup
 
       - name: Verify dependencies
-        run: npm run lerna:depcheck -- --scope @condohub/cli
+        run: yarn lerna:depcheck -- --scope @condohub/cli
 
       - name: Typecheck
-        run: npm run lerna:typecheck -- --scope @condohub/cli
+        run: yarn lerna:typecheck -- --scope @condohub/cli
 
       - name: Lint (ls-lint) source files
-        run: npm run lerna:ls-lint -- --scope @condohub/cli
+        run: yarn lerna:ls-lint -- --scope @condohub/cli
 
       - name: Lint source files
         run: npm exec eslint -- ./packages/cli/src/ --ext "ts,tsx"
 
       - name: Run unit tests
-        run: npm run lerna:test -- --scope @condohub/cli
+        run: yarn lerna:test -- --scope @condohub/cli

@@ -183,12 +183,12 @@
       "path": "../packages/common-utils"
     },
     {
-      "name": "jest-config",
-      "path": "../packages/jest-config"
-    },
-    {
       "name": "node-utils",
       "path": "../packages/node-utils"
+    },
+    {
+      "name": "jest-config",
+      "path": "../packages/jest-config"
     },
     {
       "name": "models",

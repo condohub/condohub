@@ -7,7 +7,7 @@ Clasp: https://github.com/google/clasp
 ## Development
 
 ```bash
-npm run start
+yarn start
 ```
 
 ## Deploying
