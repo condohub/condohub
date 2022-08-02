@@ -22,8 +22,7 @@
   "files": [
     "/bin",
     "/oclif.manifest.json",
-    "/src",
-    "/types"
+    "/src"
   ],
   "scripts": {
     "build": "yarn tsc:types && yarn swc:build:commonjs",
@@ -50,14 +49,11 @@
     "tsc:types:watch": "yarn tsc:types -- --watch --preserveWatchOutput"
   },
   "exports": {
-    ".": "./src/index.js",
-    "./package.json": "./package.json",
-    "./types": "./types/index.d.ts"
+    "./package.json": "./package.json"
   },
   "oclif": {
     "bin": "condohub",
     "commands": "./dist/commands",
-    "dirname": "condohub",
     "flexibleTaxonomy": true,
     "hooks": {
       "command_incomplete": "./dist/hooks/command-incomplete",
@@ -75,14 +71,16 @@
         "description": "Manage authentication to your CondoHub account and your Google Workspace"
       },
       "building": {
-        "description": "Add edit or remove buildings."
+        "description": "Manage, add, edit or remove buildings."
       },
       "config": {
         "description": "Manage local user config"
+      },
+      "maintenance": {
+        "description": "Manage, add, edit or remove maintenance schedules."
       }
     }
   },
-  "types": "./types/index.d.ts",
   "dependencies": {
     "@condohub/apis": "*",
     "@condohub/common-utils": "*",

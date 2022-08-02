@@ -19,7 +19,7 @@ class InitUserConfig extends _baseCommand.default {
     async run() {
         const { args  } = await this.parse(InitUserConfig);
         const configPath = _nodePath.default.join(this.config.configDir, "config.json");
-        const userConfigExist = await (0, _configUtilities).getUserConfig(this.config);
+        const userConfigExist = await (0, _configUtilities).getUserConfigExists(this.config);
         if (!userConfigExist) {
             this.logCommand(`no config.json found in ${configPath}`);
             const userConfig = await (0, _configUtilities).createUserConfig(this.config);
@@ -27,7 +27,7 @@ class InitUserConfig extends _baseCommand.default {
             return;
         }
         this.logCommand(`config.json found in ${configPath}`);
-        const userConfig = await (0, _configUtilities).updateUserConfig(this.config);
+        const userConfig1 = await (0, _configUtilities).updateUserConfig(this.config);
         this.logCommand(`config.json updated successfully`);
     }
 }

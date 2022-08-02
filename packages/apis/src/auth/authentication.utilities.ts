@@ -1,7 +1,12 @@
 import { JWTInput, OAuth2Client } from 'google-auth-library';
 import { google } from 'googleapis';
 
-import { User, USER_TYPE } from '@condohub/models';
+/**
+ * Utility functions for Google Authentication APIs
+ *
+ * @see https://developers.google.com/workspace/guides/auth-overview
+ * @see https://developers.google.com/workspace/guides/configure-oauth-consent
+ */
 
 /**
  * Create an OAuth2 client with the given credentials

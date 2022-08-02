@@ -125,8 +125,6 @@
       "activityBar.background": "#f889d0",
       "activityBar.foreground": "#15202b",
       "activityBar.inactiveForeground": "#15202b99",
-      "activityBarBadge.background": "#e7fbc3",
-      "activityBarBadge.foreground": "#15202b",
       "sash.hoverBorder": "#f889d0",
       "statusBar.background": "#f559bd",
       "statusBar.foreground": "#15202b",
@@ -147,7 +145,6 @@
     "recommendations": [
       "bierner.markdown-yaml-preamble",
       "cschleiden.vscode-github-actions",
-      "cssho.vscode-svgviewer",
       "dbaeumer.vscode-eslint",
       "deepscan.vscode-deepscan",
       "DigitalBrainstem.javascript-ejs-support",
@@ -177,30 +174,9 @@
       "name": "condohub",
       "path": ".."
     },
-
-    {
-      "name": "common-utils",
-      "path": "../packages/common-utils"
-    },
-    {
-      "name": "node-utils",
-      "path": "../packages/node-utils"
-    },
-    {
-      "name": "jest-config",
-      "path": "../packages/jest-config"
-    },
-    {
-      "name": "models",
-      "path": "../packages/models"
-    },
     {
       "name": "apis",
       "path": "../packages/apis"
-    },
-    {
-      "name": "cli",
-      "path": "../packages/cli"
     },
     {
       "name": "app",
@@ -209,6 +185,30 @@
     {
       "name": "apps-script",
       "path": "../packages/apps-script"
+    },
+    {
+      "name": "cli",
+      "path": "../packages/cli"
+    },
+    {
+      "name": "common-utils",
+      "path": "../packages/common-utils"
+    },
+    {
+      "name": "docs",
+      "path": "../packages/docs"
+    },
+    {
+      "name": "jest-config",
+      "path": "../packages/jest-config"
+    },
+    {
+      "name": "node-utils",
+      "path": "../packages/node-utils"
+    },
+    {
+      "name": "models",
+      "path": "../packages/models"
     },
     {
       "name": "server",

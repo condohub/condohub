@@ -43,6 +43,14 @@
       "execute": false
     },
     {
+      "name": "cli (build)",
+      "cwd": "./packages/cli",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
       "name": "models",
       "cwd": "./packages/models",
       "open": true,

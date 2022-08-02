@@ -1,1 +1,1 @@
-export * from './auth/authorize.gapi.js';
+export * from './auth/authentication.utilities.js';

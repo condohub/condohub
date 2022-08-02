@@ -27,18 +27,25 @@ class AuthLogin extends _baseCommand.default {
     }
     async run() {
         const { args  } = await this.parse(AuthLogin);
-        let credentials;
+        let userConfig;
         try {
-            (0, _configUtilities).getUserConfig(this.config);
+            userConfig = (0, _configUtilities).getUserConfig(this.config);
         } catch (error) {
             throw new _commonUtils.AppError({
                 name: _commonUtils.ERROR_TYPE.ENV_ERROR,
-                message: "Missing credentials.json file"
+                message: "Missing user config information, aborting."
             });
         }
-        // try {
-        //   const client = getAuthorizedClient();
-        // } catch (error) {}
+        if (!userConfig) {
+            throw new _commonUtils.AppError({
+                name: _commonUtils.ERROR_TYPE.CLI_ERROR,
+                message: "No user config.json found, did you run `condohub config init` first?"
+            });
+        }
+        try {
+            this.logCommand("Authorizing");
+        // const client = getAuthorizedClient();
+        } catch (error1) {}
         // try {
         //   const client = getAuthorizedClient();
         // } catch (error) {}

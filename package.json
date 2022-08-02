@@ -59,7 +59,7 @@
     "test": "yarn lerna:test",
     "typecheck": "yarn lerna:typecheck"
   },
-  "overrides": {
+  "resolutions": {
     "@babel/plugin-proposal-object-rest-spread": "^7.17.3",
     "@jest/transform": "^27",
     "@types/jest": "^27",
@@ -101,6 +101,7 @@
     "@babel/preset-react": "^7.12.10",
     "@babel/preset-typescript": "^7.16.0",
     "@babel/register": "^7.15.3",
+    "@jest/types": "^27",
     "@ls-lint/ls-lint": "^1.10.0",
     "@svgr/webpack": "^6",
     "@swc/cli": "^0.1.57",

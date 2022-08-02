@@ -2,7 +2,7 @@ import { Config } from '@oclif/core';
 import path from 'node:path';
 
 import BaseCommand from '../../base-command';
-import { deleteUserConfig, getUserConfig } from '../../utilities/config.utilities';
+import { deleteUserConfig, getUserConfigExists } from '../../utilities/config.utilities';
 
 /**
  * Delete local user configuration
@@ -21,7 +21,7 @@ export default class DeleteUserConfig extends BaseCommand {
   async run() {
     const { args } = await this.parse(DeleteUserConfig);
     const configPath = path.join(this.config.configDir, 'config.json');
-    const userConfigExist = await getUserConfig(this.config);
+    const userConfigExist = await getUserConfigExists(this.config);
 
     if (!userConfigExist) {
       this.logCommand(`no config.json found in ${configPath}`);

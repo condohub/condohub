@@ -27,7 +27,7 @@ $ npm install -g @condohub/cli
 $ condohub COMMAND
 running command...
 $ condohub (--version)
-@condohub/cli/1.0.1 darwin-arm64 node-v16.14.0
+@condohub/cli/1.0.1 darwin-arm64 node-v16.15.1
 $ condohub --help [COMMAND]
 USAGE
   $ condohub COMMAND
@@ -42,6 +42,7 @@ USAGE
 * [`condohub auth login [TEST]`](#condohub-auth-login-test)
 * [`condohub config delete [TEST]`](#condohub-config-delete-test)
 * [`condohub config init`](#condohub-config-init)
+* [`condohub config update`](#condohub-config-update)
 * [`condohub depcheck [ARGS]`](#condohub-depcheck-args)
 * [`condohub hello [WORD]`](#condohub-hello-word)
 * [`condohub help [COMMAND]`](#condohub-help-command)
@@ -108,6 +109,21 @@ DESCRIPTION
 
 EXAMPLES
   $ condohub config init
+```
+
+## `condohub config update`
+
+Update local .condohub config
+
+```
+USAGE
+  $ condohub config update
+
+DESCRIPTION
+  Update local .condohub config
+
+EXAMPLES
+  $ condohub config update
 ```
 
 ## `condohub depcheck [ARGS]`

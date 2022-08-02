@@ -6,40 +6,34 @@ exports.default = void 0;
 var _nodePath = _interopRequireDefault(require("node:path"));
 var _baseCommand = _interopRequireDefault(require("../../base-command"));
 var _configUtilities = require("../../utilities/config.utilities");
-class DeleteUserConfig extends _baseCommand.default {
-    static description = "Delete local .condohub config";
+class InitUserConfig extends _baseCommand.default {
+    static description = "Update local .condohub config";
     static examples = [
-        `$ condohub config delete`
-    ];
-    static args = [
-        {
-            name: "test"
-        }
+        `$ condohub config update`
     ];
     constructor(argv, config){
         super(argv, config, {
-            name: "config:delete"
+            name: "config:update"
         });
     }
     async run() {
-        const { args  } = await this.parse(DeleteUserConfig);
+        const { args  } = await this.parse(InitUserConfig);
         const configPath = _nodePath.default.join(this.config.configDir, "config.json");
         const userConfigExist = await (0, _configUtilities).getUserConfigExists(this.config);
         if (!userConfigExist) {
-            this.logCommand(`no config.json found in ${configPath}`);
-            this.logCommand(`nothing to delete`);
+            this.logCommand(`no config.json found in ${configPath}, did you run 'condohub config init'?`);
             return;
         }
         this.logCommand(`config.json found in ${configPath}`);
-        await (0, _configUtilities).deleteUserConfig(this.config);
-        this.logCommand(`config.json deleted successfully`);
+        const userConfig = await (0, _configUtilities).updateUserConfig(this.config);
+        this.logCommand(`config.json updated successfully`);
     }
 }
-exports.default = DeleteUserConfig;
+exports.default = InitUserConfig;
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
         default: obj
     };
 }
 
-//# sourceMappingURL=delete.js.map
+//# sourceMappingURL=update.js.map

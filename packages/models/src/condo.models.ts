@@ -31,13 +31,14 @@ export type SyndicateProfile = {
  */
 
 export enum USER_TYPE {
-  PROMOTER,
-  GENERAL_CONTRACTOR,
-  CONTRACTOR,
+  ADMINISTRATOR,
   MANAGER,
   OWNER,
   RENTER,
   SUB_RENTER,
+  PROMOTER,
+  GENERAL_CONTRACTOR,
+  CONTRACTOR,
 }
 
 export type User = {
@@ -52,7 +53,6 @@ export type UserProfile = {
   email: string;
   phone: string;
   phoneWork: string;
-  useDifferentAddress: boolean;
   emergencyContacts: UserProfile[];
 };
 
@@ -72,7 +72,14 @@ export type Alert = {
  *
  */
 
-export type Address = {};
+export type Address = {
+  street1: string;
+  street2: string;
+  poBox: string;
+  state: string;
+  postalCode: string;
+  country: string;
+};
 
 export type Building = {
   name: string;

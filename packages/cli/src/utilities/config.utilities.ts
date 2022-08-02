@@ -5,31 +5,17 @@ import path from 'node:path';
 
 import { AppError, ERROR_TYPE } from '@condohub/common-utils';
 
-/**
- * Local user config file
- *
- * @example
- *  channel: latest
-    last_checked_at: 2022-04-20T13:53:28.083177-04:00
-    latest_release:
-      version: v0.0.320
-      prerelease: false
-      download_url: https://github.com/superfly/flyctl/releases/download/v0.0.320/flyctl_0.0.320_macOS_arm64.tar.gz
-      timestamp: 2022-04-13T16:04:48Z
- *
- */
-export type UserConfig = {
-  accessToken?: string;
-};
+import { defaultUserConfig } from '../constants/default-user-config.constant';
+import { UserConfig } from '../models/user-config.model';
 
-export async function getUserConfig(config: Config) {
+export function getUserConfigExists(config: Config): boolean {
   let userConfigExists = false;
   try {
     userConfigExists = fs.existsSync(path.join(config.configDir, 'config.json'));
   } catch (error) {
     throw new AppError({
       name: ERROR_TYPE.CLI_ERROR,
-      message: 'Error occured when reading config.json',
+      message: 'Error occured when reading config.json, did you run `condohub config init` first?',
       stack: error instanceof Error ? error.stack : undefined,
     });
   }
@@ -37,19 +23,47 @@ export async function getUserConfig(config: Config) {
   return userConfigExists;
 }
 
+export function getUserConfig(config: Config): UserConfig | undefined {
+  let userConfigExists: boolean;
+  let userConfig: UserConfig;
+  try {
+    userConfigExists = getUserConfigExists(config);
+  } catch (error) {
+    throw new AppError({
+      name: ERROR_TYPE.CLI_ERROR,
+      message: 'Error occured when reading config.json, did you run `condohub config init` first?',
+      stack: error instanceof Error ? error.stack : undefined,
+    });
+  }
+
+  if (!userConfigExists) {
+    return undefined;
+  }
+
+  try {
+    const userConfigFile = fs.readFileSync(path.join(config.configDir, 'config.json'));
+    userConfig = JSON.parse(userConfigFile.toString());
+  } catch (error) {
+    throw new AppError({
+      name: ERROR_TYPE.CLI_ERROR,
+      message: 'Error occured when reading config.json, did you run `condohub config init` first?',
+      stack: error instanceof Error ? error.stack : undefined,
+    });
+  }
+
+  return userConfig;
+}
+
 export async function createUserConfig(config: Config, userConfig?: UserConfig) {
   try {
-    const initialUserConfig: UserConfig = {
-      accessToken: '',
-    };
     await fsp.mkdir(path.join(config.configDir), {
       recursive: true,
     });
     await fsp.writeFile(
       path.join(config.configDir, 'config.json'),
-      JSON.stringify(initialUserConfig, null, 2)
+      JSON.stringify(defaultUserConfig, null, 2)
     );
-    return initialUserConfig as UserConfig;
+    return defaultUserConfig as UserConfig;
   } catch (error) {
     throw new AppError({
       name: ERROR_TYPE.CLI_ERROR,
@@ -65,7 +79,13 @@ export async function updateUserConfig(config: Config, userConfig?: UserConfig) 
   try {
     const userConfigFile = await fsp.readFile(path.join(config.configDir, 'config.json'));
     const currentUserConfig = JSON.parse(userConfigFile.toString());
-    const updatedUserConfig = { ...currentUserConfig, ...userConfig };
+    const updatedUserConfig: UserConfig = {
+      ...defaultUserConfig,
+      ...currentUserConfig,
+      ...userConfig,
+      cliVersion: config.version,
+      lastUpdatedAt: new Date().toISOString(),
+    };
     await fsp.writeFile(
       path.join(config.configDir, 'config.json'),
       JSON.stringify(updatedUserConfig, null, 2)
