@@ -1,0 +1,24 @@
+version: "3.8"
+volumes:
+    node_modules:
+    cli:
+    apis: 
+services:
+    monorepo:
+        build:
+            context: .
+        volumes:
+            - .:/monorepo
+            - ./packages/cli:/monorepo/cli
+            - ./packages/apis:/monorepo/apis
+            - ./packages/common-utils:/monorepo/common-utils
+            - ./packages/models:/monorepo/models
+            - ./packages/node-utils:/monorepo/node-utils
+            - ./packages/jest-config:/monorepo/jest-config
+            - ./packages/apps-script:/monorepo/apps-script
+            - ./packages/server:/monorepo/server
+            - ./packages/website:/monorepo/website
+            - ./node_modules:/monorepo/node_modules
+        ports:
+            - "3000:3000"
+        command: "yarn start"
